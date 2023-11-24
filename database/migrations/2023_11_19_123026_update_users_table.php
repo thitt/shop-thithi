@@ -16,12 +16,12 @@ return new class extends Migration
             $table->string('first_name', 100)->nullable()->after('id');
             $table->string('last_name', 100)->nullable()->after('id');
             $table->dropColumn('name');
-            $table->integer('city')->after('id');
-            $table->integer('district')->after('id');
-            $table->text('address')->after('id');
+            $table->integer('city')->after('id')->nullable();
+            $table->integer('district')->after('id')->nullable();
+            $table->text('address')->after('id')->nullable();
             $table->string('phone_number', 15)->nullable()->after('id');
             $table->tinyInteger('role')->after('id');
-            $table->text('avatar')->after('id');
+            $table->text('avatar')->after('id')->nullable();
             $table->softDeletes();
         });
     }

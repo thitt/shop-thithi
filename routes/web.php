@@ -11,7 +11,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'locale'], function () {
     Route::get('/login', [AuthController::class, 'index'])->name(ROUTE_LOGIN);
+    Route::get('/logout', [AuthController::class, 'logout'])->name(ROUTE_LOGOUT);
     Route::get('/register', [AuthController::class, 'create'])->name(ROUTE_REGISTER);
+    Route::prefix('user')->group(function () {
+        Route::post('/store', [AuthController::class, 'store'])->name(ROUTE_REGISTER_STORE);
+        Route::post('/login', [AuthController::class, 'login'])->name(ROUTE_CHECK_LOGIN);
+
+    });
 
     Route::get('/', [HomeController::class, 'index'])->name(ROUTE_HOME_INDEX);
 
