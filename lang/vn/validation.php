@@ -123,7 +123,8 @@ return [
         'age'                   => 'tuổi',
         'available'             => 'có sẵn',
         'body'                  => 'nội dung',
-        'city'                  => 'thành phố',
+        'city'                  => 'tỉnh/thành phố',
+        'district'              => 'quận/huyện',
         'content'               => 'nội dung',
         'country'               => 'quốc gia',
         'date'                  => 'ngày',
@@ -151,5 +152,6 @@ return [
         'title'                 => 'tiêu đề',
         'username'              => 'tên đăng nhập',
         'year'                  => 'năm',
+        'phone_number'          => 'số điện thoại',
     ],
 ];

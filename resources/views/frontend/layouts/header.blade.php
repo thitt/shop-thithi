@@ -12,10 +12,14 @@
             <div class="col-xl-6 col-lg-7">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="{{ route(ROUTE_HOME_INDEX) }}">Home</a></li>
+                        <li class="{{ checkRouteActive(ROUTE_HOME_INDEX) }}">
+                            <a href="{{ route(ROUTE_HOME_INDEX) }}">{{ __('layout.home.title') }}</a>
+                        </li>
                         <li><a href="#">Women’s</a></li>
                         <li><a href="#">Men’s</a></li>
-                        <li><a href="{{ route(ROUTE_PRODUCT_INDEX) }}">Shop</a></li>
+                        <li class="{{ checkRouteActive(ROUTE_PRODUCT_INDEX) }}">
+                            <a href="{{ route(ROUTE_PRODUCT_INDEX) }}">{{ __('layout.shop.title') }}</a>
+                        </li>
 {{--                        <li><a href="#">Pages</a>--}}
 {{--                            <ul class="dropdown">--}}
 {{--                                <li><a href="./product-details.html">Product Details</a></li>--}}
@@ -24,16 +28,26 @@
 {{--                                <li><a href="./blog-details.html">Blog Details</a></li>--}}
 {{--                            </ul>--}}
 {{--                        </li>--}}
-                        <li><a href="{{ route(ROUTE_BLOG_INDEX) }}">Blog</a></li>
-                        <li><a href="{{ route(ROUTE_CONTACT_INDEX) }}">Contact</a></li>
+                        <li class="{{ checkRouteActive(ROUTE_BLOG_INDEX) }}">
+                            <a href="{{ route(ROUTE_BLOG_INDEX) }}">{{ __('layout.blog.title') }}</a>
+                        </li>
+                        <li class="{{ checkRouteActive(ROUTE_CONTACT_INDEX) }}">
+                            <a href="{{ route(ROUTE_CONTACT_INDEX) }}">{{ __('layout.contact.title') }}</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-3">
                 <div class="header__right">
                     <div class="header__right__auth">
-                        <a href="{{ route(ROUTE_LOGIN) }}">Login</a>
-                        <a href="{{ route(ROUTE_REGISTER) }}">Register</a>
+                        @if (checkUserLogin())
+                            @php($dataUser = getDataUserLogin())
+                            <a href="#">{{ $dataUser->first_name . ' ' . $dataUser->last_name }}</a>
+                            <a href="{{ route(ROUTE_LOGOUT) }}">{{ __('layout.auth.logout') }}</a>
+                        @else
+                            <a href="{{ route(ROUTE_LOGIN) }}">{{ __('layout.auth.login') }}</a>
+                            <a href="{{ route(ROUTE_REGISTER) }}">{{ __('layout.auth.register') }}</a>
+                        @endif
                     </div>
                     <ul class="header__right__widget">
                         <li><span class="icon_search search-switch"></span></li>
