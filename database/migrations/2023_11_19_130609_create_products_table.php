@@ -19,7 +19,7 @@ return new class extends Migration
             $table->decimal('price', 10, 2)->nullable();
             $table->unsignedInteger('category_id');
             $table->decimal('weight', 10, 2);
-            $table->tinyInteger('active')->default(0);
+            $table->tinyInteger('active')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

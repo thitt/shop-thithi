@@ -59,8 +59,8 @@ class AuthController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        $this->authService->register($request->all());
-        return redirect()->route(ROUTE_LOGIN);
+        $routeView = $this->authService->register($request->all());
+        return redirect()->route($routeView)->withInput();
     }
 
     /**
