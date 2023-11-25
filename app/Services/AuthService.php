@@ -24,8 +24,10 @@ class AuthService
 
         if ($users) {
             Session::flash('success', __('message.auth.register_success'));
+            return ROUTE_LOGIN;
         } else {
             Session::flash('error', __('message.auth.register_error'));
+            return ROUTE_REGISTER;
         }
     }
 
