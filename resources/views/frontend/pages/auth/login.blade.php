@@ -35,7 +35,7 @@
 
                                 <div class="d-sm-flex mb-5 align-items-center">
                                     <label class="control control--checkbox mb-3 mb-sm-0"><span class="caption">{{ __('layout.auth.remember_me') }}</span>
-                                        <input type="checkbox" checked="checked"/>
+                                        <input type="checkbox" checked="checked" name="remember_me"/>
                                         <div class="control__indicator"></div>
                                     </label>
                                     <span class="ml-auto"><a href="#" class="forgot-pass">{{ __('layout.auth.forgot_password') }}</a></span>
