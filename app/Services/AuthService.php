@@ -36,9 +36,10 @@ class AuthService
                 'email' => 'required',
                 'password' => 'required',
             ]);
-
+            $rememberMe = $request->input('remember_me') ? true : false;
             $credentials = $request->only('email', 'password');
-            if (Auth::attempt($credentials)) {
+            if (Auth::attempt($credentials, $rememberMe) 
+            || Auth::attempt(['user_name' => $request->input('email'), 'password' => $request->input('password')], $rememberMe)) {
                 return ROUTE_HOME_INDEX;
             }
 
