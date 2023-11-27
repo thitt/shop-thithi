@@ -86,8 +86,11 @@
                                 <div class="col-md-6">
                                     <div class="form-group last mb-3">
                                         <label for="password">{{ __('layout.auth.password') }}</label> <span class="text-danger">*</span>
-                                        <input type="password" class="form-control @if ($errors->has('password')) border border-danger @endif"
-                                               id="password" name="password" value="{{ old('password') }}" autocomplete="new-password">
+                                        <div class="position-relative">
+                                            <input type="password" class="input-password form-control @if ($errors->has('password')) border border-danger @endif"
+                                                   id="password" name="password" value="{{ old('password') }}" autocomplete="new-password">
+                                            <span class="icon-show-password icon-eye-slash"></span>
+                                        </div>
                                         @if ($errors->has('password'))
                                             <span class="invalid-feedback d-block">
                                                 <strong>{{ $errors->first('password') }}</strong>
@@ -98,8 +101,11 @@
                                 <div class="col-md-6">
                                     <div class="form-group last mb-3">
                                         <label for="re-password">{{ __('layout.auth.password_confirmation') }}</label> <span class="text-danger">*</span>
-                                        <input type="password" class="form-control @if ($errors->has('password_confirmation')) border border-danger @endif"
-                                               id="re-password" name="password_confirmation" value="{{ old('password_confirmation') }}">
+                                        <div class="position-relative">
+                                            <input type="password" class="input-password form-control @if ($errors->has('password_confirmation')) border border-danger @endif"
+                                                   id="re-password" name="password_confirmation" value="{{ old('password_confirmation') }}">
+                                            <span class="icon-show-password icon-eye-slash"></span>
+                                        </div>
                                         @if ($errors->has('password_confirmation'))
                                             <span class="invalid-feedback d-block">
                                                 <strong>{{ $errors->first('password_confirmation') }}</strong>

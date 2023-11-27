@@ -41,7 +41,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $route = $this->authService->login($request);
-        return redirect()->route($route);
+        return redirect()->route($route)->withInput();
     }
 
     /**
