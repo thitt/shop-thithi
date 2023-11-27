@@ -7,6 +7,9 @@ if (!defined('ROUTE_LOGIN')) {
 if (!defined('ROUTE_CHECK_LOGIN')) {
     define('ROUTE_CHECK_LOGIN', 'auth.user.login');
 }
+if (!defined('ROUTE_LOGIN_FACEBOOK')) {
+    define('ROUTE_LOGIN_FACEBOOK', 'login.facebook');
+}
 if (!defined('ROUTE_LOGOUT')) {
     define('ROUTE_LOGOUT', 'auth.logout');
 }

@@ -48,7 +48,7 @@
                                 <span class="text-center my-3 d-block">{{ __('layout.auth.or') }}</span>
 
                                 <div class="">
-                                    <a href="#" class="btn btn-block py-2 btn-facebook">
+                                    <a href="{{ route(ROUTE_LOGIN_FACEBOOK) }}" class="btn btn-block py-2 btn-facebook">
                                         <span class="icon-facebook mr-3"></span> {{ __('layout.auth.login_facebook') }}
                                     </a>
                                     <a href="#" class="btn btn-block py-2 btn-google"><span class="icon-google mr-3"></span> {{ __('layout.auth.login_google') }}</a>

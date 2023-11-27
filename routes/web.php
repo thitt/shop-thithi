@@ -16,7 +16,11 @@ Route::group(['middleware' => 'locale'], function () {
     Route::prefix('user')->group(function () {
         Route::post('/store', [AuthController::class, 'store'])->name(ROUTE_REGISTER_STORE);
         Route::post('/login', [AuthController::class, 'login'])->name(ROUTE_CHECK_LOGIN);
+    });
 
+    Route::prefix('login')->group(function () {
+        Route::get('/facebook', [AuthController::class, 'redirectToFacebook'])->name(ROUTE_LOGIN_FACEBOOK);
+        Route::get('/facebook/callback', [AuthController::class, 'handleFacebookCallback']);
     });
 
     Route::get('/', [HomeController::class, 'index'])->name(ROUTE_HOME_INDEX);

@@ -7,6 +7,7 @@ use App\Services\AuthService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
@@ -103,5 +104,19 @@ class AuthController extends Controller
     {
         $this->authService->logout();
         return redirect()->route(ROUTE_HOME_INDEX);
+    }
+
+    public function redirectToFacebook()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function handleFacebookCallback()
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        // Add logic to handle user registration or login here
+
+        return redirect('/dashboard'); // Redirect to the dashboard or another page
     }
 }
