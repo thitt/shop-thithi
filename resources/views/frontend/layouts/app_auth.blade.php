@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     @yield('css')
 </head>
 <body>
@@ -20,6 +21,7 @@
 {{--    <script src="{{ asset('js/popper.min.js') }}"></script>--}}
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 {{--    <script src="{{ asset('js/main.js') }}"></script>--}}
+    <script src="{{ asset('js/common.js') }}"></script>
     @yield('script')
 </body>
 </html>

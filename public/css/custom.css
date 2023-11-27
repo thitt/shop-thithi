@@ -1,3 +1,11 @@
 .h-70px {
     height: 70px;
 }
+
+.icon-show-password {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}

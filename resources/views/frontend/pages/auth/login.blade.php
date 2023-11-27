@@ -14,7 +14,7 @@
                     <div class="col-md-12">
                         <div class="form-block mx-auto">
                             <div class="text-center mb-5">
-                                <h3 class="text-uppercase">{{ __('layout.auth.login_to') }} <strong>{{ __('layout.name_project') }}</strong></h3>
+                                <h3 class="text-uppercase">{{ __('layout.auth.login_to') }} <strong>{{ __('layout.name_project') }}</strong><i class="fa fa-eye-slash" aria-hidden="true"></i></h3>
                             </div>
                             <form action="{{ route(ROUTE_CHECK_LOGIN) }}" method="post">
                                 @csrf
@@ -25,9 +25,12 @@
                                         <span class="text-danger">{{ $errors->first('email') }}</span>
                                     @endif
                                 </div>
-                                <div class="form-group last mb-3">
+                                <div class="form-group last mb-3" id="show_hide_password">
                                     <label for="password">{{ __('layout.auth.password') }}</label>
-                                    <input type="password" class="form-control @if ($errors->has('password')) border border-danger @endif" id="password" name="password" value="{{ old('password') }}">
+                                    <div class="position-relative">
+                                        <input type="password" class="input-password form-control @if ($errors->has('password')) border border-danger @endif" id="password" name="password">
+                                        <span class="icon-show-password icon-eye-slash"></span>
+                                    </div>
                                     @if ($errors->has('password'))
                                         <span class="text-danger">{{ $errors->first('password') }}</span>
                                     @endif
@@ -57,7 +60,5 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 @endsection
