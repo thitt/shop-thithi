@@ -51,7 +51,9 @@
                                     <a href="{{ route(ROUTE_LOGIN_FACEBOOK) }}" class="btn btn-block py-2 btn-facebook">
                                         <span class="icon-facebook mr-3"></span> {{ __('layout.auth.login_facebook') }}
                                     </a>
-                                    <a href="#" class="btn btn-block py-2 btn-google"><span class="icon-google mr-3"></span> {{ __('layout.auth.login_google') }}</a>
+                                    <a href="{{ route(ROUTE_LOGIN_GOOGLE) }}" class="btn btn-block py-2 btn-google">
+                                        <span class="icon-google mr-3"></span> {{ __('layout.auth.login_google') }}
+                                    </a>
                                     <a href="{{ route(ROUTE_REGISTER) }}" class="btn btn-block py-2 btn-success text-white"> {{ __('layout.auth.register') }}</a>
                                 </div>
                             </form>

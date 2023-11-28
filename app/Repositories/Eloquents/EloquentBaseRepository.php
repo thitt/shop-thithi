@@ -3,6 +3,7 @@
 namespace App\Repositories\Eloquents;
 
 use App\Contracts\Repositories\BaseRepository;
+use Illuminate\Database\Eloquent\Model;
 
 class EloquentBaseRepository implements BaseRepository
 {
@@ -38,6 +39,11 @@ class EloquentBaseRepository implements BaseRepository
     public function show($id)
     {
         return $this->model->findOrFail($id);
+    }
+
+    public function updateOrCreate($attributes, $data = [])
+    {
+        return $this->model->updateOrCreate($attributes, $data);
     }
 }
 

@@ -10,6 +10,9 @@ if (!defined('ROUTE_CHECK_LOGIN')) {
 if (!defined('ROUTE_LOGIN_FACEBOOK')) {
     define('ROUTE_LOGIN_FACEBOOK', 'login.facebook');
 }
+if (!defined('ROUTE_LOGIN_GOOGLE')) {
+    define('ROUTE_LOGIN_GOOGLE', 'login.google');
+}
 if (!defined('ROUTE_LOGOUT')) {
     define('ROUTE_LOGOUT', 'auth.logout');
 }
@@ -83,4 +86,7 @@ if (!defined('ROLE_USER')) {
         'admin' => 1,
         'super_admin' => 2,
     ]);
+}
+if (!defined('LENGTH_PASSWORD')) {
+    define('LENGTH_PASSWORD', 8);
 }
