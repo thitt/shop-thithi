@@ -21,6 +21,16 @@ Route::group(['middleware' => 'locale'], function () {
     Route::prefix('login')->group(function () {
         Route::get('/facebook', [AuthController::class, 'redirectToFacebook'])->name(ROUTE_LOGIN_FACEBOOK);
         Route::get('/facebook/callback', [AuthController::class, 'handleFacebookCallback']);
+        Route::get('/google', [AuthController::class, 'redirectToGoogle'])->name(ROUTE_LOGIN_GOOGLE);
+        Route::get('/google/callback', [AuthController::class, 'handleGoogleCallback']);
+    });
+
+    Route::get('chinh-sach-rieng-tu', function() {
+        echo 'chinh sach rieng tu';
+    });
+
+    Route::get('xoa-du-lieu', function() {
+        echo 'xoa-du-lieu';
     });
 
     Route::get('/', [HomeController::class, 'index'])->name(ROUTE_HOME_INDEX);

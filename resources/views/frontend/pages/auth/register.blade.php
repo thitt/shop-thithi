@@ -154,11 +154,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="text-center">
-                                <a href="#" class="btn py-2 btn-facebook text-decoration-none"><span class="icon-facebook mr-3"></span> {{ __('layout.auth.register_facebook') }}</a>
-                                <a href="#" class="btn py-2 btn-google text-decoration-none"><span class="icon-google mr-3"></span> {{ __('layout.auth.register_google') }}</a>
-                            </div>
                             <div>
                                 <a href="{{ route(ROUTE_LOGIN) }}">
                                     <input type="button" value="{{ __('layout.auth.login') }}" class="btn px-5 btn-primary">

@@ -41,5 +41,10 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
             return false;
         }
     }
+
+    public function findEmail($email)
+    {
+        return $this->model->where('email', $email)->first();
+    }
 }
 

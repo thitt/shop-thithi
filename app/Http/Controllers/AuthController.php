@@ -113,10 +113,26 @@ class AuthController extends Controller
 
     public function handleFacebookCallback()
     {
-        $user = Socialite::driver('facebook')->user();
+        if ($this->authService->facebookCallback()) {
+            return redirect()->route(ROUTE_HOME_INDEX);
+        }
 
-        // Add logic to handle user registration or login here
+        Session::flash('error', __('message.auth.login_error'));
+        return redirect()->route(ROUTE_LOGIN);
+    }
 
-        return redirect('/dashboard'); // Redirect to the dashboard or another page
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleGoogleCallback()
+    {
+        if ($this->authService->googleCallback()) {
+            return redirect()->route(ROUTE_HOME_INDEX);
+        }
+
+        Session::flash('error', __('message.auth.login_error'));
+        return redirect()->route(ROUTE_LOGIN);
     }
 }

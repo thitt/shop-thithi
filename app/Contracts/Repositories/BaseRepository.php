@@ -11,4 +11,6 @@ interface BaseRepository
     public function delete($id);
 
     public function show($id);
+
+    public function updateOrCreate(array $attributes, array $data = []);
 }
