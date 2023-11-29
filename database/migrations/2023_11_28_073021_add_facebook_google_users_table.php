@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('facebook_id')->after('remember_token')->nullable()->unique();
-            $table->string('social_provider')->nullable()->after('facebook_id');
-            $table->string('social_id')->nullable()->after('social_provider');
+            $table->string('social_id')->nullable()->after('facebook_id');
         });
     }
 
@@ -25,8 +24,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('facebook_id');
-            $table->dropColumn('social_provider');
-            $table->dropColumn('social_provider');
+            $table->dropColumn('social_id');
         });
     }
 };

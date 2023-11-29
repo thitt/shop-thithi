@@ -135,4 +135,25 @@ class AuthController extends Controller
         Session::flash('error', __('message.auth.login_error'));
         return redirect()->route(ROUTE_LOGIN);
     }
+
+    public function indexAdmin()
+    {
+        if (!Auth::guard('admin')->check()) {
+            return view(VIEW_ADMIN_LOGIN);
+        }
+
+        return redirect()->route(ROUTE_ADMIN_HOME_INDEX);
+    }
+
+    public function loginAdmin(Request $request)
+    {
+        $route = $this->authService->loginAdmin($request);
+        return redirect()->route($route)->withInput();
+    }
+
+    public function logoutAdmin()
+    {
+        Auth::guard('admin')->logout();
+        return redirect()->route(ROUTE_ADMIN_LOGIN);
+    }
 }

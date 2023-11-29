@@ -19,7 +19,7 @@
                             <form action="{{ route(ROUTE_CHECK_LOGIN) }}" method="post">
                                 @csrf
                                 <div class="form-group first">
-                                    <label for="username">{{ __('layout.auth.user_name') }}</label>
+                                    <label for="username">{{ __('layout.auth.user_name') }} {{ __('layout.auth.or') }} {{ __('layout.auth.email') }}</label>
                                     <input type="text" class="form-control @if ($errors->has('email')) border border-danger @endif" id="email" name="email" value="{{ old('email') }}">
                                     @if ($errors->has('email'))
                                         <span class="text-danger">{{ $errors->first('email') }}</span>

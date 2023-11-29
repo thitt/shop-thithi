@@ -39,10 +39,18 @@ class AuthService
                 'email' => 'required',
                 'password' => 'required',
             ]);
+<<<<<<< Updated upstream
             $rememberMe = $request->input('remember_me') ? true : false;
             $credentials = $request->only('email', 'password');
             if (Auth::attempt($credentials, $rememberMe) 
             || Auth::attempt(['user_name' => $request->input('email'), 'password' => $request->input('password')], $rememberMe)) {
+=======
+
+            $email = $request->get('email');
+            $password = $request->get('password');
+            if (Auth::attempt(['email' => $email, 'password' => $password]) ||
+                Auth::attempt(['user_name' => $email, 'password' => $password])) {
+>>>>>>> Stashed changes
                 return ROUTE_HOME_INDEX;
             }
 
@@ -103,5 +111,29 @@ class AuthService
         } catch (\Exception $e) {
             return false;
         }
+    }
+
+    public function loginAdmin($request)
+    {
+        if (!Auth::guard('admin')->check()) {
+            $request->validate([
+                'email' => 'required|email',
+                'password' => 'required',
+            ]);
+
+            $credentials = $request->only('email', 'password');
+            $user = $this->userRepository->findEmail($credentials['email']);
+            if (
+                ($user->role == ROLE_USER['admin'] || $user->role == ROLE_USER['super_admin']) &&
+                Auth::guard('admin')->attempt($credentials)
+            ) {
+                return ROUTE_ADMIN_HOME_INDEX;
+            }
+
+            Session::flash('error', __('message.auth.login_error'));
+            return ROUTE_ADMIN_LOGIN;
+        }
+
+        return ROUTE_ADMIN_HOME_INDEX;
     }
 }

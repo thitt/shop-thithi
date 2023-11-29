@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
-
+<html lang="vn">
 <head>
     <meta charset="UTF-8">
     {{--    <meta name="description" content="Ashion Template">--}}
@@ -51,7 +50,7 @@
     <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/frontend/main.js') }}"></script>
     @yield('script')
 </body>
 
