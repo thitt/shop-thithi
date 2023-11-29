@@ -26,6 +26,9 @@ return [
         'register_google' => 'Register with Google',
         'select' => 'Select',
         'logout' => 'Logout',
+        'welcome_admin' => 'Welcome to Admin',
+        'email' => 'Email',
+        'enter_email' => 'Enter your email',
     ],
     'home' => [
         'title' => 'Home',

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="vn">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -22,7 +22,7 @@
 {{--    <script src="{{ asset('js/popper.min.js') }}"></script>--}}
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 {{--    <script src="{{ asset('js/main.js') }}"></script>--}}
-    <script src="{{ asset('js/common.js') }}"></script>
+    <script src="{{ asset('js/frontend/common.js') }}"></script>
     @yield('script')
 </body>
 </html>

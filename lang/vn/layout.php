@@ -26,6 +26,9 @@ return [
         'register_google' => 'Đăng ký với Google',
         'select' => 'Chọn',
         'logout' => 'Đăng xuất',
+        'welcome_admin' => 'Chào mừng bạn đến với quản trị viên',
+        'email' => 'Email',
+        'enter_email' => 'Nhập email của bạn',
     ],
     'home' => [
         'title' => 'Trang chủ',

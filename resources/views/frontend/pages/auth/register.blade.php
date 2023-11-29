@@ -171,5 +171,5 @@
 
 @section('script')
     <script src="{{ asset('js/axios.min.js') }}"></script>
-    <script src="{{ asset('js/register.js') }}" type="module"></script>
+    <script src="{{ asset('js/frontend/register.js') }}" type="module"></script>
 @endsection

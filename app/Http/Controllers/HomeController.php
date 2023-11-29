@@ -62,4 +62,9 @@ class HomeController extends Controller
     {
         //
     }
+
+    public function indexAdmin()
+    {
+        return view(VIEW_ADMIN_HOME);
+    }
 }

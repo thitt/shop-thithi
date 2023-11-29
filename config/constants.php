@@ -46,6 +46,19 @@ if (!defined('ROUTE_BLOG_DETAIL')) {
 if (!defined('ROUTE_CONTACT_INDEX')) {
     define('ROUTE_CONTACT_INDEX', 'contact.index');
 }
+//Route admin
+if (!defined('ROUTE_ADMIN_LOGIN')) {
+    define('ROUTE_ADMIN_LOGIN', 'auth.admin.login');
+}
+if (!defined('ROUTE_ADMIN_CHECK_LOGIN')) {
+    define('ROUTE_ADMIN_CHECK_LOGIN', 'auth.admin.check.login');
+}
+if (!defined('ROUTE_ADMIN_LOGOUT')) {
+    define('ROUTE_ADMIN_LOGOUT', 'auth.admin.logout');
+}
+if (!defined('ROUTE_ADMIN_HOME_INDEX')) {
+    define('ROUTE_ADMIN_HOME_INDEX', 'admin.home.index');
+}
 
 //View
 if (!defined('VIEW_LOGIN')) {
@@ -77,6 +90,13 @@ if (!defined('VIEW_BLOG_DETAIL')) {
 }
 if (!defined('VIEW_CONTACT')) {
     define('VIEW_CONTACT', 'frontend.pages.contact.index');
+}
+//View admin
+if (!defined('VIEW_ADMIN_LOGIN')) {
+    define('VIEW_ADMIN_LOGIN', 'backend.pages.auth.login');
+}
+if (!defined('VIEW_ADMIN_HOME')) {
+    define('VIEW_ADMIN_HOME', 'backend.pages.home.index');
 }
 
 //Constant
