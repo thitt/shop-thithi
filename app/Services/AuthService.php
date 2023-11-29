@@ -39,18 +39,11 @@ class AuthService
                 'email' => 'required',
                 'password' => 'required',
             ]);
-<<<<<<< Updated upstream
+
             $rememberMe = $request->input('remember_me') ? true : false;
             $credentials = $request->only('email', 'password');
-            if (Auth::attempt($credentials, $rememberMe) 
+            if (Auth::attempt($credentials, $rememberMe)
             || Auth::attempt(['user_name' => $request->input('email'), 'password' => $request->input('password')], $rememberMe)) {
-=======
-
-            $email = $request->get('email');
-            $password = $request->get('password');
-            if (Auth::attempt(['email' => $email, 'password' => $password]) ||
-                Auth::attempt(['user_name' => $email, 'password' => $password])) {
->>>>>>> Stashed changes
                 return ROUTE_HOME_INDEX;
             }
 
