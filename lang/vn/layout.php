@@ -2,6 +2,19 @@
 
 return [
     'name_project' => 'Thithi Shop',
+    'list' => 'Danh sách',
+    'id' => 'Id',
+    'create' => 'Tạo mới',
+    'name' => 'Tên',
+    'slug' => 'Slug url',
+    'description' => 'Mô tả',
+    'actions' => 'Hành động',
+    'edit' => 'Sửa',
+    'delete' => 'Xoá',
+    'button' => [
+        'save' => 'Lưu',
+        'back' => 'Quay lại',
+    ],
     'auth' => [
         'login' => 'Đăng nhập',
         'login_to' => 'Đăng nhập đến',
@@ -32,6 +45,12 @@ return [
     ],
     'home' => [
         'title' => 'Trang chủ',
+    ],
+    'category' => [
+        'title' => 'Loại sản phẩm',
+        'create' => 'Thêm loại sản phẩm',
+        'list' => 'Danh sách sản phẩm',
+        'edit' => 'Sửa loại sản phẩm',
     ],
     'product' => [
         'title' => 'Sản phẩm',

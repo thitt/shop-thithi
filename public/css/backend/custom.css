@@ -1,0 +1,10 @@
+.w-100px {
+    width: 100px;
+}
+.w-150px {
+    width: 150px;
+}
+.pagination-custom .pagination {
+    margin-top: 20px;
+    justify-content: center;
+}

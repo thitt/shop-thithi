@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/custom.css') }}">
     @yield('css')
 </head>
 <body>
