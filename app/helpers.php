@@ -32,6 +32,18 @@ if (!function_exists('checkRouteActive')) {
     }
 }
 
+if (!function_exists('checkRouteActiveParent')) {
+    function checkRouteActiveParent($routeNameChild): string
+    {
+        $routeCurrent = Route::currentRouteName();
+        if (in_array($routeCurrent, $routeNameChild)) {
+            return 'active open';
+        }
+
+        return '';
+    }
+}
+
 if (!function_exists('randomPassword')) {
     function randomPassword($length): string
     {

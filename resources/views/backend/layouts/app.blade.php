@@ -15,15 +15,23 @@
     <link rel="stylesheet" href="{{ asset('css/backend/theme-default.css') }}" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('css/backend/perfect-scrollbar.css') }}" />
     <link rel="stylesheet" href="{{ asset('vendor/apex-charts/apex-charts.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/backend/custom.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/backend/loading.css') }}" />
+    @yield('css')
 </head>
 
 <body>
+    @include('backend.layouts.loading')
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             @include('backend.layouts.sidebar')
-            @yield('content')
+            <div class="content-wrapper">
+                <div class="container-xxl flex-grow-1 container-p-y">
+                    @include('backend.layouts.notification')
+                    @yield('content')
+                </div>
+            </div>
         </div>
-        <div class="layout-overlay layout-menu-toggle"></div>
     </div>
 
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
@@ -34,5 +42,6 @@
     <script src="{{ asset('js/backend/main.js') }}" type="module"></script>
     <script src="{{ asset('vendor/apex-charts/apexcharts.js') }}"></script>
     <script src="{{ asset('js/backend/dashboards-analytics.js') }}"></script>
+    @yield('script')
 </body>
 </html>

@@ -59,6 +59,24 @@ if (!defined('ROUTE_ADMIN_LOGOUT')) {
 if (!defined('ROUTE_ADMIN_HOME_INDEX')) {
     define('ROUTE_ADMIN_HOME_INDEX', 'admin.home.index');
 }
+if (!defined('ROUTE_ADMIN_CATEGORY_LIST')) {
+    define('ROUTE_ADMIN_CATEGORY_LIST', 'admin.category.index');
+}
+if (!defined('ROUTE_ADMIN_CATEGORY_CREATE')) {
+    define('ROUTE_ADMIN_CATEGORY_CREATE', 'admin.category.create');
+}
+if (!defined('ROUTE_ADMIN_CATEGORY_STORE')) {
+    define('ROUTE_ADMIN_CATEGORY_STORE', 'admin.category.store');
+}
+if (!defined('ROUTE_ADMIN_CATEGORY_EDIT')) {
+    define('ROUTE_ADMIN_CATEGORY_EDIT', 'admin.category.edit');
+}
+if (!defined('ROUTE_ADMIN_CATEGORY_UPDATE')) {
+    define('ROUTE_ADMIN_CATEGORY_UPDATE', 'admin.category.update');
+}
+if (!defined('ROUTE_ADMIN_CATEGORY_DELETE')) {
+    define('ROUTE_ADMIN_CATEGORY_DELETE', 'admin.category.delete');
+}
 
 //View
 if (!defined('VIEW_LOGIN')) {
@@ -98,6 +116,15 @@ if (!defined('VIEW_ADMIN_LOGIN')) {
 if (!defined('VIEW_ADMIN_HOME')) {
     define('VIEW_ADMIN_HOME', 'backend.pages.home.index');
 }
+if (!defined('VIEW_ADMIN_CATEGORY_LIST')) {
+    define('VIEW_ADMIN_CATEGORY_LIST', 'backend.pages.category.index');
+}
+if (!defined('VIEW_ADMIN_CATEGORY_CREATE')) {
+    define('VIEW_ADMIN_CATEGORY_CREATE', 'backend.pages.category.create');
+}
+if (!defined('VIEW_ADMIN_CATEGORY_EDIT')) {
+    define('VIEW_ADMIN_CATEGORY_EDIT', 'backend.pages.category.edit');
+}
 
 //Constant
 if (!defined('ROLE_USER')) {
@@ -109,4 +136,7 @@ if (!defined('ROLE_USER')) {
 }
 if (!defined('LENGTH_PASSWORD')) {
     define('LENGTH_PASSWORD', 8);
+}
+if (!defined('MAX_RECORD')) {
+    define('MAX_RECORD', 20);
 }

@@ -2,6 +2,19 @@
 
 return [
     'name_project' => 'Thithi Shop',
+    'list' => 'List',
+    'id' => 'Id',
+    'create' => 'Create',
+    'name' => 'Name',
+    'slug' => 'Slug url',
+    'description' => 'Description',
+    'actions' => 'Actions',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'button' => [
+        'save' => 'Save',
+        'back' => 'Back',
+    ],
     'auth' => [
         'login' => 'Login',
         'login_to' => 'Login to',
@@ -32,6 +45,12 @@ return [
     ],
     'home' => [
         'title' => 'Home',
+    ],
+    'category' => [
+        'title' => 'Category',
+        'create' => 'Create category',
+        'list' => 'List category',
+        'edit' => 'Edit category',
     ],
     'product' => [
         'title' => 'Product',

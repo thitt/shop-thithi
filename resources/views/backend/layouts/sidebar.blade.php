@@ -10,10 +10,10 @@
     <div class="menu-inner-shadow"></div>
 
     <ul class="menu-inner py-1">
-        <li class="menu-item active">
+        <li class="menu-item {{ checkRouteActive(ROUTE_ADMIN_HOME_INDEX) }}">
             <a href="{{ route(ROUTE_ADMIN_HOME_INDEX) }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Home</div>
+                <div data-i18n="Analytics">{{ __('layout.home.title') }}</div>
             </a>
         </li>
 
@@ -39,12 +39,30 @@
         </li>
 
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Products</span>
+            <span class="menu-header-text">{{ __('layout.product.title') }}</span>
+        </li>
+        <li class="menu-item {{ checkRouteActiveParent([ROUTE_ADMIN_CATEGORY_LIST, ROUTE_ADMIN_CATEGORY_CREATE, ROUTE_ADMIN_CATEGORY_EDIT]) }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxs-category"></i>
+                <div data-i18n="Authentications">{{ __('layout.category.title') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ checkRouteActive(ROUTE_ADMIN_CATEGORY_LIST) }}">
+                    <a href="{{ route(ROUTE_ADMIN_CATEGORY_LIST) }}" class="menu-link">
+                        <div data-i18n="Basic">{{ __('layout.list') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ checkRouteActive(ROUTE_ADMIN_CATEGORY_CREATE) }}">
+                    <a href="{{ route(ROUTE_ADMIN_CATEGORY_CREATE) }}" class="menu-link">
+                        <div data-i18n="Basic">{{ __('layout.create') }}</div>
+                    </a>
+                </li>
+            </ul>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">Products</div>
+                <i class="menu-icon tf-icons bx bxl-product-hunt"></i>
+                <div data-i18n="Account Settings">{{ __('layout.product.title') }}</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
@@ -55,24 +73,6 @@
                 <li class="menu-item">
                     <a href="#" class="menu-link">
                         <div data-i18n="Notifications">Create</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                <div data-i18n="Authentications">Category</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="#" class="menu-link" target="_blank">
-                        <div data-i18n="Basic">List</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link" target="_blank">
-                        <div data-i18n="Basic">Create</div>
                     </a>
                 </li>
             </ul>
