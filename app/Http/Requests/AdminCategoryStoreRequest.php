@@ -23,7 +23,6 @@ class AdminCategoryStoreRequest extends FormRequest
     {
         return [
             'name' => 'required|max:100',
-            'slug' => 'required|max:255',
             'description' => 'max:1000',
         ];
     }

@@ -11,9 +11,16 @@ return [
     'actions' => 'Actions',
     'edit' => 'Edit',
     'delete' => 'Delete',
+    'show' => 'Show',
+    'entries' => 'entries',
+    'confirm_delete' => 'Confirm delete',
     'button' => [
         'save' => 'Save',
         'back' => 'Back',
+        'search' => 'Search',
+        'reset' => 'Reset',
+        'close' => 'Close',
+        'delete' => 'Delete',
     ],
     'auth' => [
         'login' => 'Login',
@@ -51,6 +58,7 @@ return [
         'create' => 'Create category',
         'list' => 'List category',
         'edit' => 'Edit category',
+        'number_product' => 'Number product',
     ],
     'product' => [
         'title' => 'Product',

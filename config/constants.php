@@ -140,3 +140,8 @@ if (!defined('LENGTH_PASSWORD')) {
 if (!defined('MAX_RECORD')) {
     define('MAX_RECORD', 20);
 }
+if (!defined('NUMBER_RECORD')) {
+    define('NUMBER_RECORD', [
+        20, 50, 100
+    ]);
+}
