@@ -23,11 +23,8 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="slug">{{ __('layout.slug') }}</label>
-                            <input type="text" class="form-control @if ($errors->has('slug')) border-danger @endif"
-                                   id="slug" name="slug" value="{{ old('slug', $data_category['slug']) }}"/>
-                            @if ($errors->has('slug'))
-                                <span class="invalid-feedback d-block">{{ $errors->first('slug') }}</span>
-                            @endif
+                            <input type="text" class="form-control" id="slug"
+                                   value="{{ old('slug', $data_category['slug']) }}" disabled readonly/>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="description">{{ __('layout.description') }}</label>

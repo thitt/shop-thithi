@@ -67,3 +67,16 @@ if (!function_exists('convertImageUrlBase64')) {
         return '';
     }
 }
+
+if (!function_exists('iconSortListAdmin')) {
+    function iconSortListAdmin($sort, $key, $value)
+    {
+        if ($key == $value) {
+            if ($sort == 'desc') {
+                return 'bx-sort-down desc';
+            }
+            return 'bx-sort-up asc';
+        }
+        return 'bx-sort';
+    }
+}

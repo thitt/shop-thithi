@@ -11,9 +11,16 @@ return [
     'actions' => 'Hành động',
     'edit' => 'Sửa',
     'delete' => 'Xoá',
+    'show' => 'Hiển thị',
+    'entries' => 'bản ghi',
+    'confirm_delete' => 'Xác nhận xoá',
     'button' => [
         'save' => 'Lưu',
         'back' => 'Quay lại',
+        'search' => 'Tìm kiếm',
+        'reset' => 'Cài lại',
+        'close' => 'Đóng',
+        'delete' => 'Xoá',
     ],
     'auth' => [
         'login' => 'Đăng nhập',
@@ -51,6 +58,7 @@ return [
         'create' => 'Thêm loại sản phẩm',
         'list' => 'Danh sách sản phẩm',
         'edit' => 'Sửa loại sản phẩm',
+        'number_product' => 'Số sản phẩm',
     ],
     'product' => [
         'title' => 'Sản phẩm',

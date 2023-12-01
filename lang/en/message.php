@@ -12,5 +12,8 @@ return [
         'create_error' => 'Category create error.',
         'edit_success' => 'Category edit success!',
         'edit_error' => 'Category edit error.',
+        'delete_success' => 'Category delete success!',
+        'delete_error' => 'Category delete error.',
+        'modal_delete' => 'Are you sure you want to delete this category?',
     ],
 ];

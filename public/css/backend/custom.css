@@ -1,3 +1,6 @@
+body a:hover {
+    text-decoration: none;
+}
 .w-100px {
     width: 100px;
 }
@@ -5,6 +8,8 @@
     width: 150px;
 }
 .pagination-custom .pagination {
-    margin-top: 20px;
-    justify-content: center;
+    justify-content: end;
+}
+.table-responsive>.table-bordered {
+    border-color: #d9dee3;
 }

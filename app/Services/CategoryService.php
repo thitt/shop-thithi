@@ -19,7 +19,7 @@ class CategoryService
     public function storeAdmin($data)
     {
         try {
-            $dataCategory = $data->only('name', 'slug', 'description');
+            $dataCategory = $data->only('name', 'description');
             $this->categoryRepository->create($dataCategory);
             return true;
         } catch (\Exception $e) {
@@ -30,7 +30,7 @@ class CategoryService
     public function updateAdmin($data, $id)
     {
         try {
-            $dataCategory = $data->only('id', 'name', 'slug', 'description');
+            $dataCategory = $data->only('id', 'name', 'description');
             $this->categoryRepository->updateById($id, $dataCategory);
             return true;
         } catch (\Exception $e) {
@@ -40,7 +40,7 @@ class CategoryService
 
     public function getListCategory($data)
     {
-        return $this->categoryRepository->paginate(MAX_RECORD);
+        return $this->categoryRepository->searchCategory($data);
     }
 
     public function getCategoryById($id)
