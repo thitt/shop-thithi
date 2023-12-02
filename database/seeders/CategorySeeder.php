@@ -6,6 +6,8 @@ use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Cviebrock\EloquentSluggable\Services\SlugService;
+use Sluggable, SluggableEngine, SluggableScopeHelpers;
 
 class CategorySeeder extends Seeder
 {
@@ -39,6 +41,7 @@ class CategorySeeder extends Seeder
         ];
 
         collect($categories)->each(function ($category) {
+            $category['slug'] = SlugService::createSlug(Category::class, 'slug', $category['name']);
             Category::create($category);
         });
     }

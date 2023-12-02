@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Category extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    use Sluggable;
 
     protected $table = 'categories';
 
@@ -27,31 +29,41 @@ class Category extends Model
         return $this->hasMany(Product::class);
     }
 
-    protected static function boot()
+    public function sluggable(): array
     {
-        parent::boot();
-        static::created(function ($category) {
-            $category->slug = $category->generateSlug($category->name);
-            $category->save();
-        });
-//        static::updated(function ($category) {
-//            $category->slug = $category->generateSlug($category->name);
-//            $category->save();
-//        });
+        // TODO: Implement sluggable() method.
+        return [
+            'slug' => [
+                'source' => ['name', 'id']
+            ]
+        ];
     }
 
-    private function generateSlug($name)
-    {
-        if (static::whereSlug($slug = Str::slug($name))->exists()) {
-            $max = static::whereName($name)->latest('id')->skip(1)->value('slug');
-            if (isset($max[-1]) && is_numeric($max[-1])) {
-                return preg_replace_callback('/(\d+)$/', function($mathces) {
-                    return $mathces[1] + 1;
-                }, $max);
-            }
-            return "{$slug}-2";
-        }
+//     protected static function boot()
+//     {
+//         parent::boot();
+//         static::created(function ($category) {
+//             $category->slug = $category->generateSlug($category->name);
+//             $category->save();
+//         });
+// //        static::updated(function ($category) {
+// //            $category->slug = $category->generateSlug($category->name);
+// //            $category->save();
+// //        });
+//     }
 
-        return $slug;
-    }
+    // private function generateSlug($name)
+    // {
+    //     if (static::whereSlug($slug = Str::slug($name))->exists()) {
+    //         $max = static::whereName($name)->latest('id')->skip(1)->value('slug');
+    //         if (isset($max[-1]) && is_numeric($max[-1])) {
+    //             return preg_replace_callback('/(\d+)$/', function($mathces) {
+    //                 return $mathces[1] + 1;
+    //             }, $max);
+    //         }
+    //         return "{$slug}-2";
+    //     }
+
+    //     return $slug;
+    // }
 }
