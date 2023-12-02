@@ -123,7 +123,6 @@ class CategoryController extends Controller
         } else {
             Session::flash('error', __('message.category.delete_error'));
         }
-
-        return redirect()->route(ROUTE_ADMIN_CATEGORY_LIST);
+        return redirect()->back();
     }
 }

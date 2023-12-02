@@ -108,7 +108,7 @@
                     </label>
                 </div>
                 <div class="col-8 pagination-custom">
-                    {!! $list_category->withQueryString()->links('pagination::bootstrap-4') !!}
+                    {!! $list_category->withQueryString() !!}
                 </div>
             </div>
         </div>
