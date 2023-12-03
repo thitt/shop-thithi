@@ -26,6 +26,6 @@
     <script src="{{ asset('js/backend/common.js') }}"></script>
     <script src="{{ asset('js/backend/helpers.js') }}"></script>
     <script src="{{ asset('js/backend/config.js') }}"></script>
-    <script src="{{ asset('js/backend/main.js') }}"></script>
+    <script src="{{ asset('js/backend/main.js') }}" type="module"></script>
 </body>
 </html>

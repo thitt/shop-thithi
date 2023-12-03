@@ -19,7 +19,11 @@ class CategoryService
     public function storeAdmin($data)
     {
         try {
-            $dataCategory = $data->only('name', 'description');
+            $dataCategory = $data->all('name', 'description', 'type_category', 'parent_id');
+            if ($dataCategory['type_category'] == IS_PARENT_CATEGORY) {
+                $dataCategory['parent_id'] = IS_PARENT_CATEGORY;
+            }
+            unset($dataCategory['type_category']);
             $this->categoryRepository->create($dataCategory);
             return true;
         } catch (\Exception $e) {
@@ -50,6 +54,15 @@ class CategoryService
 
     public function deleteCategory($id)
     {
-        return $this->categoryRepository->deleteById($id);
+        $category = $this->categoryRepository->getById($id);
+        if ($category->products->count() == 0) {
+            return $this->categoryRepository->deleteById($id);
+        }
+        return false;
+    }
+
+    public function getCategoryParent()
+    {
+        return $this->categoryRepository->getCategoryParent();
     }
 }

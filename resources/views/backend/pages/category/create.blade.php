@@ -30,6 +30,31 @@
                                 <span class="invalid-feedback d-block">{{ $errors->first('description') }}</span>
                             @endif
                         </div>
+                        <div class="mb-3">
+                            <small class="text-light fw-medium d-block">{{ __('layout.type') }}</small>
+                            <div class="form-check form-check-inline mt-3">
+                                <input class="form-check-input input-category-parent" id="parent-category" type="radio" name="type_category"
+                                       value="{{ IS_PARENT_CATEGORY }}" @if (old('type_category') == IS_PARENT_CATEGORY || old('type_category') == null) checked @endif>
+                                <label class="form-check-label" for="parent-category">{{ __('layout.parent') }}</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input input-category-parent" id="child-category" type="radio" name="type_category"
+                                       value="{{ IS_CHILD_CATEGORY }}"  @if (old('type_category') == IS_CHILD_CATEGORY) checked @endif>
+                                <label class="form-check-label" for="child-category">{{ __('layout.child') }}</label>
+                            </div>
+                        </div>
+                        <div class="mb-3 block-category-parent">
+                            <label for="list-category-parent" class="form-label">{{ __('layout.category.type_parent') }}</label>
+                            <select class="form-select @if ($errors->has('parent_id')) border-danger @endif" id="list-category-parent" name="parent_id">
+                                <option value="">{{ __('layout.select') }}</option>
+                                @foreach($list_category_parent as $category)
+                                    <option value="{{ $category->id }}" @if (old('parent_id') == $category->id) selected @endif>{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            @if ($errors->has('parent_id'))
+                                <span class="invalid-feedback d-block">{{ $errors->first('parent_id') }}</span>
+                            @endif
+                        </div>
                         <a href="{{ route(ROUTE_ADMIN_CATEGORY_LIST) }}">
                             <button type="button" class="btn btn-secondary">{{ __('layout.button.back') }}</button>
                         </a>
@@ -39,4 +64,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script src="{{ asset('js/backend/category.js') }}"></script>
 @endsection

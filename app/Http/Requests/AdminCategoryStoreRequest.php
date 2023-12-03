@@ -21,9 +21,15 @@ class AdminCategoryStoreRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'name' => 'required|max:100',
             'description' => 'max:1000',
         ];
+
+        if (request('type_category') == IS_CHILD_CATEGORY) {
+            $rules['parent_id'] = 'required';
+        }
+
+        return $rules;
     }
 }

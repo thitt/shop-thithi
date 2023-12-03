@@ -24,8 +24,10 @@ class CategoryRepository extends BaseRepository
     {
         $result = $this->model
             ->with('products')
+            ->with('parent')
             ->when(isset($data['name']), function ($query) use ($data) {
-                $query->where('name', 'like', '%' .$data['name'] . '%');
+                $query->where('name', 'like', '%' .$data['name'] . '%')
+                    ->orWhereRelation('parent', 'name', 'like', '%' .$data['name'] . '%');
             })
             ->when(isset($data['slug']), function ($query) use ($data) {
                 $query->where('slug', 'like', '%' .$data['slug'] . '%');
@@ -37,5 +39,10 @@ class CategoryRepository extends BaseRepository
                 $query->orderBy($data['key'], $data['sort']);
             });
         return $result->paginate($data['number_record'] ?? MAX_RECORD);
+    }
+
+    public function getCategoryParent()
+    {
+        return $this->model->where('parent_id', IS_PARENT_CATEGORY)->get();
     }
 }

@@ -14,6 +14,15 @@ return [
     'show' => 'Show',
     'entries' => 'entries',
     'confirm_delete' => 'Confirm delete',
+    'confirm_logout' => 'Confirm logout',
+    'select' => 'Select',
+    'type' => 'Type',
+    'parent' => 'Parent',
+    'child' => 'Child',
+    'showing' => 'Showing',
+    'to' => 'to',
+    'of' => 'of',
+    'results' => 'results',
     'button' => [
         'save' => 'Save',
         'back' => 'Back',
@@ -59,6 +68,7 @@ return [
         'list' => 'List category',
         'edit' => 'Edit category',
         'number_product' => 'Number product',
+        'type_parent' => 'Type parent',
     ],
     'product' => [
         'title' => 'Product',

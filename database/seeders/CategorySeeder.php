@@ -11,6 +11,8 @@ use Sluggable, SluggableEngine, SluggableScopeHelpers;
 
 class CategorySeeder extends Seeder
 {
+    const WOMEN = 1;
+    const MEN = 2;
     /**
      * Run the database seeds.
      */
@@ -18,26 +20,23 @@ class CategorySeeder extends Seeder
     {
         DB::table('categories')->truncate();
         $categories = [
-            ['name' => 'Women Coats'],
-            ['name' => 'Women Jackets'],
-            ['name' => 'Women Dresses'],
-            ['name' => 'Women Shirts'],
-            ['name' => 'Women T-shirts'],
-            ['name' => 'Women Jeans'],
-            ['name' => 'Men Coats'],
-            ['name' => 'Men Jackets'],
-            ['name' => 'Men Dresses'],
-            ['name' => 'Men Shirts'],
-            ['name' => 'Men T-shirts'],
-            ['name' => 'Men Jeans'],
-            ['name' => 'Kids Coats'],
-            ['name' => 'Kids Jackets'],
-            ['name' => 'Kids Dresses'],
-            ['name' => 'Kids Shirts'],
-            ['name' => 'Kids T-shirts'],
-            ['name' => 'Kids Jeans'],
-            ['name' => 'Accessories'],
-            ['name' => 'Cosmetic'],
+            ['id' => self::WOMEN, 'name' => 'Women', 'parent_id' => 0],
+            ['id' => self::MEN, 'name' => 'Men', 'parent_id' => 0],
+            ['id' => 3, 'name' => 'Kids', 'parent_id' => 0],
+            ['id' => 4, 'name' => 'Accessories', 'parent_id' => 0],
+            ['id' => 5, 'name' => 'Cosmetic', 'parent_id' => 0],
+            ['name' => 'Coats', 'parent_id' => self::WOMEN],
+            ['name' => 'Jackets', 'parent_id' => self::WOMEN],
+            ['name' => 'Dresses', 'parent_id' => self::WOMEN],
+            ['name' => 'Shirts', 'parent_id' => self::WOMEN],
+            ['name' => 'T-shirts', 'parent_id' => self::WOMEN],
+            ['name' => 'Jeans', 'parent_id' => self::WOMEN],
+            ['name' => 'Coats', 'parent_id' => self::WOMEN],
+            ['name' => 'Jackets', 'parent_id' => self::WOMEN],
+            ['name' => 'Dresses', 'parent_id' => self::MEN],
+            ['name' => 'Shirts', 'parent_id' => self::MEN],
+            ['name' => 'T-shirts', 'parent_id' => self::MEN],
+            ['name' => 'Jeans', 'parent_id' => self::MEN],
         ];
 
         collect($categories)->each(function ($category) {

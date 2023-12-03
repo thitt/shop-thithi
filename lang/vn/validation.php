@@ -153,5 +153,6 @@ return [
         'username'              => 'tên đăng nhập',
         'year'                  => 'năm',
         'phone_number'          => 'số điện thoại',
+        'parent_id'             => 'cha',
     ],
 ];
