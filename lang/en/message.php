@@ -6,6 +6,7 @@ return [
         'register_success' => 'Registration successful!',
         'register_error' => 'Registration failed. Please check your input and try again.',
         'login_error' => 'Login failed. Please check your credentials and try again.',
+        'logout' => 'Are you sure you want to sign out?',
     ],
     'category' => [
         'create_success' => 'Category create success!',

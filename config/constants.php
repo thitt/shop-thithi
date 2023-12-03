@@ -145,3 +145,9 @@ if (!defined('NUMBER_RECORD')) {
         20, 50, 100
     ]);
 }
+if (!defined('IS_PARENT_CATEGORY')) {
+    define('IS_PARENT_CATEGORY', 0);
+}
+if (!defined('IS_CHILD_CATEGORY')) {
+    define('IS_CHILD_CATEGORY', 1);
+}

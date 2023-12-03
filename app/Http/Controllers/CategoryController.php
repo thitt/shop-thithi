@@ -83,7 +83,10 @@ class CategoryController extends Controller
 
     public function createAdmin()
     {
-        return view(VIEW_ADMIN_CATEGORY_CREATE);
+        $listCategoryParent = $this->categoryService->getCategoryParent();
+        return view(VIEW_ADMIN_CATEGORY_CREATE)->with([
+            'list_category_parent' => $listCategoryParent,
+        ]);
     }
 
     public function storeAdmin(AdminCategoryStoreRequest $request)
@@ -100,8 +103,10 @@ class CategoryController extends Controller
     public function editAdmin($id)
     {
         $dataCategory = $this->categoryService->getCategoryById($id);
+        $listCategoryParent = $this->categoryService->getCategoryParent();
         return view(VIEW_ADMIN_CATEGORY_EDIT)->with([
             'data_category' => $dataCategory,
+            'list_category_parent' => $listCategoryParent,
         ]);
     }
 

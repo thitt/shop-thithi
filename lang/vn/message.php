@@ -6,6 +6,7 @@ return [
         'register_success' => 'Đăng ký thành công!',
         'register_error' => 'Đăng ký không thành công. Vui lòng kiểm tra thông tin bạn nhập và thử lại.',
         'login_error' => 'Đăng nhập thất bại. Vui lòng kiểm tra thông tin đăng nhập của bạn và thử lại.',
+        'logout' => 'Bạn chắc chắn có muốn đăng xuất không?',
     ],
     'category' => [
         'create_success' => 'Loại sản phẩm tạo thành công!',

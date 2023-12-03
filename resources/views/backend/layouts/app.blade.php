@@ -26,14 +26,18 @@
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             @include('backend.layouts.sidebar')
-            <div class="content-wrapper">
-                <div class="container-xxl flex-grow-1 container-p-y">
-                    @include('backend.layouts.notification')
-                    @yield('content')
+            <div class="layout-page">
+                @include('backend.layouts.navbar')
+                <div class="content-wrapper">
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        @include('backend.layouts.notification')
+                        @yield('content')
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    @include('backend.modals.modal_logout')
 
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>

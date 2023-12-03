@@ -122,10 +122,10 @@
         </li>
 
         <li class="menu-item">
-            <a href="{{ route(ROUTE_ADMIN_LOGOUT) }}" class="menu-link">
+            <div class="menu-link cursor-pointer" data-toggle="modal" data-target="#modal-logout">
                 <i class="menu-icon tf-icons bx bx-log-out"></i>
                 <div>Logout</div>
-            </a>
+            </div>
         </li>
     </ul>
 </aside>

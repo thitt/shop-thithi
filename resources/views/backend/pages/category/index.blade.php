@@ -38,6 +38,15 @@
         </div>
         <div class="card-body">
             <div class="table-responsive text-nowrap">
+                <p class="text-sm text-gray-700 leading-5">
+                    {{ __('layout.showing') }}
+                    <span class="font-medium">{{ $list_category->firstItem() }}</span>
+                    {{ __('layout.to') }}
+                    <span class="font-medium">{{ $list_category->lastItem() }}</span>
+                    {{ __('layout.of') }}
+                    <span class="font-medium">{{ $list_category->total() }}</span>
+                    {{ __('layout.results') }}
+                </p>
                 <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -63,10 +72,13 @@
                     </thead>
                     <tbody>
                     @forelse($list_category as $category)
+                        @php
+                            $name_parent = $category->parent->name ?? '';
+                        @endphp
                         <tr>
                             <td>{{ $category->id }}</td>
                             <td>
-                                <strong>{{ $category->name }}</strong>
+                                <strong>{{ $name_parent ? ($name_parent . ' / ') : '' }}{{ $category->name }}</strong>
                             </td>
                             <td>{{ $category->description }}</td>
                             <td>{{ $category->slug }}</td>
@@ -77,11 +89,13 @@
                                         <i class="bx bx-edit-alt"></i>
                                     </span>
                                 </a>
-                                <span class="badge rounded-pill bg-label-danger btn-delete" data-toggle="modal"
-                                      data-target="#modal-delete"
-                                      data-url="{{ route(ROUTE_ADMIN_CATEGORY_DELETE, $category->id) }}">
-                                    <i class="bx bx-trash"></i>
-                                </span>
+                                @if ($category->products->count() == 0)
+                                    <span class="badge rounded-pill bg-label-danger btn-delete" data-toggle="modal"
+                                          data-target="#modal-delete"
+                                          data-url="{{ route(ROUTE_ADMIN_CATEGORY_DELETE, $category->id) }}">
+                                        <i class="bx bx-trash"></i>
+                                    </span>
+                                @endif
                             </td>
                         </tr>
                     @empty
@@ -113,5 +127,5 @@
             </div>
         </div>
     </div>
-    @include('backend.layouts.modal_delete', ['message' => __('message.category.modal_delete')])
+    @include('backend.modals.modal_delete', ['message' => __('message.category.modal_delete')])
 @endsection

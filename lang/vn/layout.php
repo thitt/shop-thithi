@@ -14,6 +14,15 @@ return [
     'show' => 'Hiển thị',
     'entries' => 'bản ghi',
     'confirm_delete' => 'Xác nhận xoá',
+    'confirm_logout' => 'Xác nhận đăng xuất',
+    'select' => 'Chọn',
+    'type' => 'Loại',
+    'parent' => 'Cha',
+    'child' => 'Con',
+    'showing' => 'Hiển thị',
+    'to' => 'đến',
+    'of' => 'của',
+    'results' => 'kết quả',
     'button' => [
         'save' => 'Lưu',
         'back' => 'Quay lại',
@@ -59,6 +68,7 @@ return [
         'list' => 'Danh sách sản phẩm',
         'edit' => 'Sửa loại sản phẩm',
         'number_product' => 'Số sản phẩm',
+        'type_parent' => 'Cha của loại sản phẩm',
     ],
     'product' => [
         'title' => 'Sản phẩm',

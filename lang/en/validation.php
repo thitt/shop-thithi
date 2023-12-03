@@ -172,6 +172,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'parent_id' => 'parent'
+    ],
 
 ];
