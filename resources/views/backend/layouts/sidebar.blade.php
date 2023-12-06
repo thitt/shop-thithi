@@ -59,20 +59,20 @@
                 </li>
             </ul>
         </li>
-        <li class="menu-item">
+        <li class="menu-item {{ checkRouteActiveParent([ROUTE_ADMIN_PRODUCT_LIST, ROUTE_ADMIN_PRODUCT_CREATE]) }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bxl-product-hunt"></i>
                 <div data-i18n="Account Settings">{{ __('layout.product.title') }}</div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <div data-i18n="Account">List</div>
+                <li class="menu-item {{ checkRouteActive(ROUTE_ADMIN_PRODUCT_LIST) }}">
+                    <a href="{{ route(ROUTE_ADMIN_PRODUCT_LIST) }}" class="menu-link">
+                        <div data-i18n="Account">{{ __('layout.list') }}</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <div data-i18n="Notifications">Create</div>
+                <li class="menu-item {{ checkRouteActive(ROUTE_ADMIN_PRODUCT_CREATE) }}">
+                    <a href="{{ route(ROUTE_ADMIN_PRODUCT_CREATE) }}" class="menu-link">
+                        <div data-i18n="Notifications">{{ __('layout.create') }}</div>
                     </a>
                 </li>
             </ul>

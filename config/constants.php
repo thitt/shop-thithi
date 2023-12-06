@@ -77,6 +77,15 @@ if (!defined('ROUTE_ADMIN_CATEGORY_UPDATE')) {
 if (!defined('ROUTE_ADMIN_CATEGORY_DELETE')) {
     define('ROUTE_ADMIN_CATEGORY_DELETE', 'admin.category.delete');
 }
+if (!defined('ROUTE_ADMIN_PRODUCT_LIST')) {
+    define('ROUTE_ADMIN_PRODUCT_LIST', 'admin.product.index');
+}
+if (!defined('ROUTE_ADMIN_PRODUCT_CREATE')) {
+    define('ROUTE_ADMIN_PRODUCT_CREATE', 'admin.product.create');
+}
+if (!defined('ROUTE_ADMIN_PRODUCT_STORE')) {
+    define('ROUTE_ADMIN_PRODUCT_STORE', 'admin.product.store');
+}
 
 //View
 if (!defined('VIEW_LOGIN')) {
@@ -125,6 +134,12 @@ if (!defined('VIEW_ADMIN_CATEGORY_CREATE')) {
 if (!defined('VIEW_ADMIN_CATEGORY_EDIT')) {
     define('VIEW_ADMIN_CATEGORY_EDIT', 'backend.pages.category.edit');
 }
+if (!defined('VIEW_ADMIN_PRODUCT_LIST')) {
+    define('VIEW_ADMIN_PRODUCT_LIST', 'backend.pages.product.index');
+}
+if (!defined('VIEW_ADMIN_PRODUCT_CREATE')) {
+    define('VIEW_ADMIN_PRODUCT_CREATE', 'backend.pages.product.create');
+}
 
 //Constant
 if (!defined('ROLE_USER')) {
@@ -150,4 +165,12 @@ if (!defined('IS_PARENT_CATEGORY')) {
 }
 if (!defined('IS_CHILD_CATEGORY')) {
     define('IS_CHILD_CATEGORY', 1);
+}
+if (!defined('ROLE_IMAGE')) {
+    define('ROLE_IMAGE', [
+        'image_base' => 0,
+        'image_small' => 1,
+        'image_thumbnail' => 2,
+        'image_swatch' => 3,
+    ]);
 }

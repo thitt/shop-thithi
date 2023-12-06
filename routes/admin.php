@@ -26,5 +26,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'locale'], function () {
             Route::post('update/{id}', [CategoryController::class, 'updateAdmin'])->name(ROUTE_ADMIN_CATEGORY_UPDATE);
             Route::get('delete/{id}', [CategoryController::class, 'deleteAdmin'])->name(ROUTE_ADMIN_CATEGORY_DELETE);
         });
+
+        Route::prefix('product')->group(function () {
+            Route::get('', [ProductController::class, 'indexAdmin'])->name(ROUTE_ADMIN_PRODUCT_LIST);
+            Route::get('create', [ProductController::class, 'createAdmin'])->name(ROUTE_ADMIN_PRODUCT_CREATE);
+            Route::post('store', [ProductController::class, 'storeAdmin'])->name(ROUTE_ADMIN_PRODUCT_STORE);
+        });
     });
 });

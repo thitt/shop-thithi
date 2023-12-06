@@ -2,8 +2,9 @@
 @section('title', __('layout.category.create'))
 
 @section('content')
-    <h4 class="fw-bold py-3 mb-4"><span
-            class="text-muted fw-light">{{ __('layout.category.title') }}/</span> {{ __('layout.create') }}</h4>
+    <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light">{{ __('layout.category.title') }}/</span> {{ __('layout.create') }}
+    </h4>
     <div class="row">
         <div class="col-xl">
             <div class="card mb-4">
@@ -31,7 +32,7 @@
                             @endif
                         </div>
                         <div class="mb-3">
-                            <small class="text-light fw-medium d-block">{{ __('layout.type') }}</small>
+                            <label class="form-label d-block">{{ __('layout.type') }}</label>
                             <div class="form-check form-check-inline mt-3">
                                 <input class="form-check-input input-category-parent" id="parent-category" type="radio" name="type_category"
                                        value="{{ IS_PARENT_CATEGORY }}" @if (old('type_category') == IS_PARENT_CATEGORY || old('type_category') == null) checked @endif>

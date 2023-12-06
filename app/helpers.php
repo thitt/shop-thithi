@@ -80,3 +80,14 @@ if (!function_exists('iconSortListAdmin')) {
         return 'bx-sort';
     }
 }
+
+if (!function_exists('convertBase64ToFileImage')) {
+    function convertBase64ToFileImage($file): ?string
+    {
+        if ($file) {
+            return base64_encode(file_get_contents($file));
+        }
+
+        return null;
+    }
+}
