@@ -40,11 +40,11 @@
             <div class="table-responsive text-nowrap">
                 <p class="text-sm text-gray-700 leading-5">
                     {{ __('layout.showing') }}
-                    <span class="font-medium">{{ $list_category->firstItem() }}</span>
+                    <span class="font-medium">{{ $list_product->firstItem() }}</span>
                     {{ __('layout.to') }}
-                    <span class="font-medium">{{ $list_category->lastItem() }}</span>
+                    <span class="font-medium">{{ $list_product->lastItem() }}</span>
                     {{ __('layout.of') }}
-                    <span class="font-medium">{{ $list_category->total() }}</span>
+                    <span class="font-medium">{{ $list_product->total() }}</span>
                     {{ __('layout.results') }}
                 </p>
                 <table class="table table-bordered">
@@ -71,38 +71,38 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @forelse($list_category as $category)
-                        @php
-                            $name_parent = $category->parent->name ?? '';
-                        @endphp
-                        <tr>
-                            <td>{{ $category->id }}</td>
-                            <td>
-                                <strong>{{ $category->name }}{{ $name_parent ? (' (' . $name_parent . ')') : '' }}</strong>
-                            </td>
-                            <td>{{ $category->description }}</td>
-                            <td>{{ $category->slug }}</td>
-                            <td>{{ $category->products->count() }}</td>
-                            <td class="w-150px text-center">
-                                <a href="{{ route(ROUTE_ADMIN_CATEGORY_EDIT, $category->id) }}">
-                                    <span class="badge rounded-pill bg-label-primary">
-                                        <i class="bx bx-edit-alt"></i>
-                                    </span>
-                                </a>
-                                @if ($category->products->count() == 0)
-                                    <span class="badge rounded-pill bg-label-danger btn-delete" data-toggle="modal"
-                                          data-target="#modal-delete"
-                                          data-url="{{ route(ROUTE_ADMIN_CATEGORY_DELETE, $category->id) }}">
-                                        <i class="bx bx-trash"></i>
-                                    </span>
-                                @endif
-                            </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="100%" class="text-center">{{ __('message.no_data') }}</td>
-                        </tr>
-                    @endforelse
+{{--                    @forelse($list_product as $category)--}}
+{{--                        @php--}}
+{{--                            $name_parent = $category->parent->name ?? '';--}}
+{{--                        @endphp--}}
+{{--                        <tr>--}}
+{{--                            <td>{{ $category->id }}</td>--}}
+{{--                            <td>--}}
+{{--                                <strong>{{ $name_parent ? ($name_parent . ' / ') : '' }}{{ $category->name }}</strong>--}}
+{{--                            </td>--}}
+{{--                            <td>{{ $category->description }}</td>--}}
+{{--                            <td>{{ $category->slug }}</td>--}}
+{{--                            <td>{{ $category->products->count() }}</td>--}}
+{{--                            <td class="w-150px text-center">--}}
+{{--                                <a href="{{ route(ROUTE_ADMIN_CATEGORY_EDIT, $category->id) }}">--}}
+{{--                                    <span class="badge rounded-pill bg-label-primary">--}}
+{{--                                        <i class="bx bx-edit-alt"></i>--}}
+{{--                                    </span>--}}
+{{--                                </a>--}}
+{{--                                @if ($category->products->count() == 0)--}}
+{{--                                    <span class="badge rounded-pill bg-label-danger btn-delete" data-toggle="modal"--}}
+{{--                                          data-target="#modal-delete"--}}
+{{--                                          data-url="{{ route(ROUTE_ADMIN_CATEGORY_DELETE, $category->id) }}">--}}
+{{--                                        <i class="bx bx-trash"></i>--}}
+{{--                                    </span>--}}
+{{--                                @endif--}}
+{{--                            </td>--}}
+{{--                        </tr>--}}
+{{--                    @empty--}}
+{{--                        <tr>--}}
+{{--                            <td colspan="100%" class="text-center">{{ __('message.no_data') }}</td>--}}
+{{--                        </tr>--}}
+{{--                    @endforelse--}}
                     </tbody>
                 </table>
             </div>
@@ -122,10 +122,11 @@
                     </label>
                 </div>
                 <div class="col-8 pagination-custom">
-                    {!! $list_category->withQueryString() !!}
+                    {!! $list_product->withQueryString() !!}
                 </div>
             </div>
         </div>
     </div>
     @include('backend.modals.modal_delete', ['message' => __('message.category.modal_delete')])
 @endsection
+

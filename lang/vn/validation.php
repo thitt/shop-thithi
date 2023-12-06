@@ -154,5 +154,13 @@ return [
         'year'                  => 'năm',
         'phone_number'          => 'số điện thoại',
         'parent_id'             => 'cha',
+        'stock_quantity.*'      => 'số lượng',
+        'price'                 => 'giá',
+        'weight'                => 'khối lượng',
+        'image_base'            => 'ảnh(cơ bản)',
+        'image_small'           => 'ảnh(nhỏ)',
+        'image_thumbnail'       => 'ảnh(thumbnail)',
+        'image_swatch'          => 'ảnh(swatch)',
+        'category_id'           => 'loại sản phẩm',
     ],
 ];

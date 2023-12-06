@@ -23,6 +23,15 @@ return [
     'to' => 'to',
     'of' => 'of',
     'results' => 'results',
+    'price' => 'Price',
+    'weight' => 'Weight',
+    'image_base' => 'Image(Base)',
+    'image_small' => 'Image(Small)',
+    'image_thumbnail' => 'Image(Thumbnail)',
+    'image_swatch' => 'Image(Swatch)',
+    'quantity' => 'Quantity',
+    'color' => 'Color',
+    'size' => 'Size',
     'button' => [
         'save' => 'Save',
         'back' => 'Back',
@@ -72,6 +81,9 @@ return [
     ],
     'product' => [
         'title' => 'Product',
+        'create' => 'Create Product',
+        'info' => 'Product information',
+        'quantity' => 'Quantity product',
     ],
     'checkout' => [
         'title' => 'Checkout',

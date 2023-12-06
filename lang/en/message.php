@@ -17,4 +17,8 @@ return [
         'delete_error' => 'Category delete error.',
         'modal_delete' => 'Are you sure you want to delete this category?',
     ],
+    'product' => [
+        'create_success' => 'Product create success!',
+        'create_error' => 'Product create error.',
+    ],
 ];

@@ -45,4 +45,9 @@ class CategoryRepository extends BaseRepository
     {
         return $this->model->where('parent_id', IS_PARENT_CATEGORY)->get();
     }
+
+    public function getAllCategory()
+    {
+        return $this->model->with('parent')->get();
+    }
 }

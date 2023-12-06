@@ -23,6 +23,15 @@ return [
     'to' => 'đến',
     'of' => 'của',
     'results' => 'kết quả',
+    'price' => 'Giá',
+    'weight' => 'Khối lượng',
+    'image_base' => 'Ảnh(Cơ bản)',
+    'image_small' => 'Ảnh(Nhỏ)',
+    'image_thumbnail' => 'Ảnh(Thumbnail)',
+    'image_swatch' => 'Ảnh(Swatch)',
+    'quantity' => 'Số lượng',
+    'color' => 'Màu sắc',
+    'size' => 'Kích cỡ',
     'button' => [
         'save' => 'Lưu',
         'back' => 'Quay lại',
@@ -72,6 +81,9 @@ return [
     ],
     'product' => [
         'title' => 'Sản phẩm',
+        'create' => 'Tạo mới sản phẩm',
+        'info' => 'Thông tin sản phẩm',
+        'quantity' => 'Số lượng sản phẩm',
     ],
     'checkout' => [
         'title' => 'Thanh toán',

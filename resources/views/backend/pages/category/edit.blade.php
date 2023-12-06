@@ -36,7 +36,7 @@
                             @endif
                         </div>
                         <div class="mb-3">
-                            <label for="list-category-parent" class="form-label d-block">{{ __('layout.type') }}</label>
+                            <label class="form-label d-block">{{ __('layout.type') }}</label>
                             <div class="form-check form-check-inline mt-3">
                                 <input class="form-check-input input-category-parent" id="parent-category" type="radio" disabled readonly
                                        value="{{ IS_PARENT_CATEGORY }}" @if ($data_category['parent_id'] == IS_PARENT_CATEGORY) checked @endif>

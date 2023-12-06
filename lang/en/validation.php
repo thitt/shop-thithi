@@ -173,7 +173,9 @@ return [
     */
 
     'attributes' => [
-        'parent_id' => 'parent'
+        'parent_id' => 'parent',
+        'stock_quantity.*'=> 'quantity',
+        'category_id'=> 'category',
     ],
 
 ];

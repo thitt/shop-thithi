@@ -17,4 +17,8 @@ return [
         'delete_error' => 'Xoá loại sản phẩm thất bại.',
         'modal_delete' => 'Bạn có chắc muốn xoá loại sản phẩm này không?',
     ],
+    'product' => [
+        'create_success' => 'Sản phẩm tạo thành công!',
+        'create_error' => 'Sản phẩm tạo thất bại.',
+    ],
 ];
