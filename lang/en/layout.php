@@ -32,6 +32,7 @@ return [
     'quantity' => 'Quantity',
     'color' => 'Color',
     'size' => 'Size',
+    'sell_number' => 'sell number',
     'button' => [
         'save' => 'Save',
         'back' => 'Back',

@@ -86,6 +86,15 @@ if (!defined('ROUTE_ADMIN_PRODUCT_CREATE')) {
 if (!defined('ROUTE_ADMIN_PRODUCT_STORE')) {
     define('ROUTE_ADMIN_PRODUCT_STORE', 'admin.product.store');
 }
+if (!defined('ROUTE_ADMIN_PRODUCT_EDIT')) {
+    define('ROUTE_ADMIN_PRODUCT_EDIT', 'admin.product.edit');
+}
+if (!defined('ROUTE_ADMIN_PRODUCT_UPDATE')) {
+    define('ROUTE_ADMIN_PRODUCT_UPDATE', 'admin.product.update');
+}
+if (!defined('ROUTE_ADMIN_PRODUCT_DELETE')) {
+    define('ROUTE_ADMIN_PRODUCT_DELETE', 'admin.product.delete');
+}
 
 //View
 if (!defined('VIEW_LOGIN')) {
@@ -139,6 +148,9 @@ if (!defined('VIEW_ADMIN_PRODUCT_LIST')) {
 }
 if (!defined('VIEW_ADMIN_PRODUCT_CREATE')) {
     define('VIEW_ADMIN_PRODUCT_CREATE', 'backend.pages.product.create');
+}
+if (!defined('VIEW_ADMIN_PRODUCT_EDIT')) {
+    define('VIEW_ADMIN_PRODUCT_EDIT', 'backend.pages.product.edit');
 }
 
 //Constant

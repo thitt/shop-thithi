@@ -32,6 +32,7 @@ return [
     'quantity' => 'Số lượng',
     'color' => 'Màu sắc',
     'size' => 'Kích cỡ',
+    'sell_number' => 'số lượt bán',
     'button' => [
         'save' => 'Lưu',
         'back' => 'Quay lại',
@@ -82,6 +83,7 @@ return [
     'product' => [
         'title' => 'Sản phẩm',
         'create' => 'Tạo mới sản phẩm',
+        'edit' => 'Sửa sản phẩm',
         'info' => 'Thông tin sản phẩm',
         'quantity' => 'Số lượng sản phẩm',
     ],

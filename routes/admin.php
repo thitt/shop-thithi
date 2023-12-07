@@ -31,6 +31,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'locale'], function () {
             Route::get('', [ProductController::class, 'indexAdmin'])->name(ROUTE_ADMIN_PRODUCT_LIST);
             Route::get('create', [ProductController::class, 'createAdmin'])->name(ROUTE_ADMIN_PRODUCT_CREATE);
             Route::post('store', [ProductController::class, 'storeAdmin'])->name(ROUTE_ADMIN_PRODUCT_STORE);
+            Route::get('edit/{id}', [ProductController::class, 'editAdmin'])->name(ROUTE_ADMIN_PRODUCT_EDIT);
+            Route::post('update/{id}', [ProductController::class, 'updateAdmin'])->name(ROUTE_ADMIN_PRODUCT_UPDATE);
+            Route::get('delete/{id}', [ProductController::class, 'deleteAdmin'])->name(ROUTE_ADMIN_PRODUCT_DELETE);
         });
     });
 });

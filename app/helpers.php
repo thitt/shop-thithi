@@ -91,3 +91,15 @@ if (!function_exists('convertBase64ToFileImage')) {
         return null;
     }
 }
+
+if (!function_exists('getNameCategory')) {
+    function getNameCategory($category)
+    {
+        $parent = '';
+        if ($category->parent) {
+            $parent = ' (' . $category->parent->name . ')';
+        }
+
+        return $category->name . $parent;
+    }
+}

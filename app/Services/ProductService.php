@@ -78,4 +78,30 @@ class ProductService
             return false;
         }
     }
+
+    public function deleteProduct($id)
+    {
+        try {
+            DB::beginTransaction();
+            $product = $this->productRepository->getById($id);
+            if ($product) {
+                $product_quantities = $this->productQuantityRepository
+                    ->getDataByProductId($product->id)->pluck('id')->toArray();
+                $product_images = $this->productImageRepository
+                    ->getDataByProductId($product->id)->pluck('id')->toArray();
+
+                $this->productRepository->deleteById($id);
+                $this->productQuantityRepository->deleteMultipleById($product_quantities);
+                $this->productImageRepository->deleteMultipleById($product_images);
+                DB::commit();
+                return true;
+            }
+
+            DB::rollBack();
+            return false;
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return false;
+        }
+    }
 }
