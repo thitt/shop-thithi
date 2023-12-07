@@ -35,9 +35,10 @@ class CategoryRepository extends BaseRepository
             ->when(isset($data['description']), function ($query) use ($data) {
                 $query->where('description', 'like', '%' .$data['description'] . '%');
             })
-            ->when(isset($data['key']) && $data['sort'], function ($query) use ($data) {
+            ->when(isset($data['key']) && isset($data['sort']), function ($query) use ($data) {
                 $query->orderBy($data['key'], $data['sort']);
-            });
+            })
+            ->orderBy('created_at', 'desc');
         return $result->paginate($data['number_record'] ?? MAX_RECORD);
     }
 

@@ -32,4 +32,9 @@ class ProductQuantityRepository extends BaseRepository
         }
         return parent::createMultiple($dataProductQuantities);
     }
+
+    public function getDataByProductId($product_id)
+    {
+        return $this->model->where('product_id', $product_id)->get();
+    }
 }

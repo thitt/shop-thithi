@@ -75,8 +75,10 @@ class ProductController extends Controller
     {
         $data = $request->all();
         $listProduct = $this->productService->getListProduct($data);
+        $listCategory = $this->productService->getAllCategory();
         return view(VIEW_ADMIN_PRODUCT_LIST)->with([
             'list_product' => $listProduct,
+            'list_category' => $listCategory,
         ]);
     }
 
@@ -101,5 +103,25 @@ class ProductController extends Controller
 
         Session::flash('error', __('message.product.create_error'));
         return redirect()->route(ROUTE_ADMIN_PRODUCT_CREATE)->withInput();
+    }
+
+    public function editAdmin($id)
+    {
+        return view(VIEW_ADMIN_PRODUCT_EDIT);
+    }
+
+    public function updateAdmin(Request $request, $id)
+    {
+
+    }
+
+    public function deleteAdmin($id)
+    {
+        if ($this->productService->deleteProduct($id)) {
+            Session::flash('success', __('message.product.delete_success'));
+        } else {
+            Session::flash('error', __('message.product.delete_error'));
+        }
+        return redirect()->back();
     }
 }

@@ -17,6 +17,7 @@ const COMMON_ADMIN = (function () {
 
     modules.clearDataForm = function (form) {
         $(form).find("input:not(.input-not-reset)").val('');
+        $(form).find("select").val('');
         $(form).submit();
     }
 

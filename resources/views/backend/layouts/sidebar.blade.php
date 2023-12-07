@@ -59,7 +59,7 @@
                 </li>
             </ul>
         </li>
-        <li class="menu-item {{ checkRouteActiveParent([ROUTE_ADMIN_PRODUCT_LIST, ROUTE_ADMIN_PRODUCT_CREATE]) }}">
+        <li class="menu-item {{ checkRouteActiveParent([ROUTE_ADMIN_PRODUCT_LIST, ROUTE_ADMIN_PRODUCT_CREATE, ROUTE_ADMIN_PRODUCT_EDIT]) }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bxl-product-hunt"></i>
                 <div data-i18n="Account Settings">{{ __('layout.product.title') }}</div>
