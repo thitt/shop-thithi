@@ -186,3 +186,9 @@ if (!defined('ROLE_IMAGE')) {
         'image_swatch' => 3,
     ]);
 }
+
+if (!defined('SYSTEM_ERROR')) {
+    define('SYSTEM_ERROR', [
+        'not_found' => 404,
+    ]);
+}

@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 use JasonGuru\LaravelMakeRepository\Repository\BaseRepository;
 
 /**
@@ -21,6 +22,10 @@ class ProductRepository extends BaseRepository
 
     public function searchListProduct($data)
     {
+        $sql_quantity = '(select sum(`product_quantities`.`stock_quantity`)
+                    from `product_quantities`
+                    where `products`.`id` = `product_quantities`.`product_id`
+                      and `product_quantities`.`deleted_at` is null) ';
         $result = $this->model
             ->with(['category' => function ($query) use ($data) {
                 $query->with('parent');
@@ -45,17 +50,31 @@ class ProductRepository extends BaseRepository
             ->when(isset($data['price_to']), function ($query) use ($data) {
                 $query->where('price', '<=', $data['price_to']);
             })
-            //TODO:search stock_quantity
-//            ->when(isset($data['quantity_from']), function ($query) use ($data) {
-//                $query->whereHas('product_quantities', function ($q) use ($data) {
-//                    $q->whereSum('stock_quantity', '>=', $data['quantity_from']);
-//                });
-//            })
+            ->when(isset($data['quantity_from']) && isset($data['quantity_to']), function ($query) use ($data, $sql_quantity) {
+                $query->whereRaw(DB::raw(
+                    $sql_quantity .'between ? and ?'), [$data['quantity_from'], $data['quantity_to']]);
+            })
+            ->when(isset($data['quantity_from']), function ($query) use ($data, $sql_quantity) {
+                $query->whereRaw(DB::raw(
+                    $sql_quantity. '>= ?'), [$data['quantity_from']]);
+            })
+            ->when(isset($data['quantity_to']), function ($query) use ($data, $sql_quantity) {
+                $query->whereRaw(DB::raw(
+                    $sql_quantity .'<= ?'), [$data['quantity_to']]);
+            })
             ->when(isset($data['key']) && isset($data['sort']), function ($query) use ($data) {
                 $query->orderBy($data['key'], $data['sort']);
             })
             ->orderBy('created_at', 'desc');
 
         return $result->paginate($data['number_record'] ?? MAX_RECORD);
+    }
+
+    public function getProductById($id)
+    {
+        return $this->model
+            ->where('id', $id)
+            ->with('category', 'productQuantities', 'productImages')
+            ->first();
     }
 }

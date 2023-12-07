@@ -22,6 +22,8 @@ const PRODUCT_ADMIN = (function () {
         html.find('.input-color:first').prop('checked', true);
         html.find('.input-size:first').prop('checked', true);
         html.find('.btn-delete-product-quantity').removeClass('d-none');
+        html.find('.input-product-quantity-id').val('');
+        html.find('.input-product-quantity-id').attr('name', 'product_quantity_id[' + count + ']');
         $('.block-product-quantity').append(html);
     }
 
@@ -70,7 +72,7 @@ const PRODUCT_ADMIN = (function () {
             localStorage.removeItem('image_base');
             localStorage.removeItem('image_base_name');
             localStorage.removeItem('image_small');
-            localStorage.removeItem('image_base_name');
+            localStorage.removeItem('image_small_name');
             localStorage.removeItem('image_thumbnail');
             localStorage.removeItem('image_thumbnail_name');
             localStorage.removeItem('image_swatch');
@@ -83,6 +85,7 @@ const PRODUCT_ADMIN = (function () {
         if (image_src) {
             let name_file = localStorage.getItem(name + '_name');
             let input_file = $('input[name="' + name + '"]');
+            input_file.parent().find('.preview-image').html('');
             input_file.parent().find('.preview-image').append('<img src="' + image_src + '"/>');
             const dataTransfer = new DataTransfer();
             dataTransfer.items.add(modules.dataURLtoFile(image_src, name_file));

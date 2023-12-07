@@ -34,6 +34,11 @@ class Product extends Model
         return $this->hasMany(ProductQuantity::class);
     }
 
+    public function productImages()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
+
     public function sluggable(): array
     {
         // TODO: Implement sluggable() method.

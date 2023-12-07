@@ -21,7 +21,7 @@ class AdminProductStoreRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rule = [
             'name' => 'required',
             'category_id' => 'required',
             'price' => 'required',
@@ -32,5 +32,11 @@ class AdminProductStoreRequest extends FormRequest
             'image_swatch' => 'nullable|mimes:jpeg,jpg,png,gif',
             'stock_quantity.*' => 'required',
         ];
+
+        if (request('id')) {
+            $rule['image_base'] = 'nullable|mimes:jpeg,jpg,png,gif';
+        }
+
+        return $rule;
     }
 }

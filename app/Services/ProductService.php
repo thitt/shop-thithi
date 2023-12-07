@@ -62,8 +62,8 @@ class ProductService
     {
         try {
             DB::beginTransaction();
-            $dataCategory = $request->only('category_id', 'name', 'description', 'price', 'weight');
-            $product = $this->productRepository->create($dataCategory);
+            $dataProduct = $request->only('category_id', 'name', 'description', 'price', 'weight');
+            $product = $this->productRepository->create($dataProduct);
 
             $dataQuantities = $request->only('stock_quantity', 'color', 'size');
             $this->productQuantityRepository->createMultipleQuantity($product->id, $dataQuantities);
@@ -101,6 +101,36 @@ class ProductService
             return false;
         } catch (\Exception $e) {
             DB::rollBack();
+            return false;
+        }
+    }
+
+    public function getProduct($id)
+    {
+        $product = $this->productRepository->getProductById($id);
+        abort_if(!$product, SYSTEM_ERROR['not_found']);
+
+        return $product;
+    }
+
+    public function updateProduct($request, $id)
+    {
+        try {
+            DB::beginTransaction();
+            $dataProduct = $request->only('category_id', 'name', 'description', 'price', 'weight');
+            $product = $this->productRepository->updateById($id, $dataProduct);
+
+            $dataQuantities = $request->only('product_quantity_id', 'stock_quantity', 'color', 'size');
+            $this->productQuantityRepository->updateMultipleQuantity($product->id, $dataQuantities);
+
+            $dataImages = $request->only('image_base', 'image_small', 'image_thumbnail', 'image_swatch');
+            $this->productImageRepository->updateMultipleImage($product->id, $dataImages);
+
+            DB::commit();
+            return true;
+        } catch (\Exception $e) {
+            DB::rollBack();
+            dd($e);
             return false;
         }
     }

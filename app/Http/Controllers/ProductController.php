@@ -107,12 +107,27 @@ class ProductController extends Controller
 
     public function editAdmin($id)
     {
-        return view(VIEW_ADMIN_PRODUCT_EDIT);
+        $listCategory = $this->productService->getAllCategory();
+        $listColor = $this->productService->getAllColor();
+        $listSize = $this->productService->getAllSize();
+        $product = $this->productService->getProduct($id);
+        return view(VIEW_ADMIN_PRODUCT_EDIT)->with([
+            'list_category' => $listCategory,
+            'list_color' => $listColor,
+            'list_size' => $listSize,
+            'product' => $product,
+        ]);
     }
 
-    public function updateAdmin(Request $request, $id)
+    public function updateAdmin(AdminProductStoreRequest $request, $id)
     {
+        if ($this->productService->updateProduct($request, $id)) {
+            Session::flash('success', __('message.product.edit_success'));
+            return redirect()->route(ROUTE_ADMIN_PRODUCT_LIST);
+        }
 
+        Session::flash('error', __('message.product.edit_error'));
+        return redirect()->route(ROUTE_ADMIN_PRODUCT_EDIT, $id)->withInput();
     }
 
     public function deleteAdmin($id)

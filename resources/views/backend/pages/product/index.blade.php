@@ -41,9 +41,9 @@
                             <div class="col-12 col-sm-6 col-lg-4">
                                 <label class="form-label">{{ __('layout.quantity') }}:</label>
                                 <div class="input-group">
-                                    <input type="number" class="form-control" name="quantity_from" value="{{ request('quantity_from') }}" disabled>
+                                    <input type="number" class="form-control" name="quantity_from" value="{{ request('quantity_from') }}">
                                     <span class="input-group-text py-1">{{ __('layout.to') }}</span>
-                                    <input type="number" class="form-control" name="quantity_to" value="{{ request('quantity_to') }}" disabled>
+                                    <input type="number" class="form-control" name="quantity_to" value="{{ request('quantity_to') }}">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6 col-lg-4">
