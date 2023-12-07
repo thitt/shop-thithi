@@ -20,6 +20,8 @@ return [
     'product' => [
         'create_success' => 'Product create success!',
         'create_error' => 'Product create error.',
+        'edit_success' => 'Product edit success!',
+        'edit_error' => 'Product edit error.',
         'delete_success' => 'Product delete success!',
         'delete_error' => 'Product delete error.',
         'modal_delete' => 'Are you sure you want to delete this product?',

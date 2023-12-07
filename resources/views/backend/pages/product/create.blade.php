@@ -62,7 +62,7 @@
                 <div class="col-md-6">
                     <label for="image-base" class="form-label">{{ __('layout.image_base') }}</label> <span class="text-danger">*</span>
                     <input class="form-control input-image @if ($errors->has('image_base')) border-danger @endif"
-                           type="file" id="image-base" name="image_base" value="{{ old('image_base') }}">
+                           type="file" id="image-base" name="image_base">
                     @if ($errors->has('image_base'))
                         <span class="invalid-feedback d-block">{{ $errors->first('image_base') }}</span>
                     @endif
@@ -71,7 +71,7 @@
                 <div class="col-md-6">
                     <label for="image-small" class="form-label">{{ __('layout.image_small') }}</label>
                     <input class="form-control input-image @if ($errors->has('image_small')) border-danger @endif"
-                           type="file" id="image-small" name="image_small" value="{{ old('image_small') }}">
+                           type="file" id="image-small" name="image_small">
                     @if ($errors->has('image_small'))
                         <span class="invalid-feedback d-block">{{ $errors->first('image_small') }}</span>
                     @endif
@@ -80,7 +80,7 @@
                 <div class="col-md-6">
                     <label for="image-thumbnail" class="form-label">{{ __('layout.image_thumbnail') }}</label>
                     <input class="form-control input-image @if ($errors->has('image_thumbnail')) border-danger @endif"
-                           type="file" id="image-thumbnail" name="image_thumbnail" value="{{ old('image_thumbnail') }}">
+                           type="file" id="image-thumbnail" name="image_thumbnail">
                     @if ($errors->has('image_thumbnail'))
                         <span class="invalid-feedback d-block">{{ $errors->first('image_thumbnail') }}</span>
                     @endif
@@ -89,7 +89,7 @@
                 <div class="col-md-6">
                     <label for="image-swatch" class="form-label">{{ __('layout.image_swatch') }}</label>
                     <input class="form-control input-image @if ($errors->has('image_swatch')) border-danger @endif"
-                           type="file" id="image-swatch" name="image_swatch" value="{{ old('image_swatch') }}">
+                           type="file" id="image-swatch" name="image_swatch">
                     @if ($errors->has('image_swatch'))
                         <span class="invalid-feedback d-block">{{ $errors->first('image_swatch') }}</span>
                     @endif
@@ -119,7 +119,8 @@
                         <div class="js-product-quantity row g-3 mt-0 @if ($key != 0) clone-product-quantity @endif">
                             <div class="col-md-6">
                                 <label class="form-label" for="stock-quantity">{{ __('layout.quantity') }} <span class="text-danger">*</span></label>
-                                <input type="number" id="stock-quantity" class="form-control input-stock-quantity" name="stock_quantity[{{ $key }}]" value="{{ $stock_quantity_old }}">
+                                <input type="number" id="stock-quantity" class="form-control input-stock-quantity @if ($errors->has('stock_quantity.' . $key)) border-danger @endif"
+                                       name="stock_quantity[{{ $key }}]" value="{{ $stock_quantity_old }}">
                                 @if ($errors->has('stock_quantity.' . $key))
                                     <span class="invalid-feedback d-block">{{ $errors->first('stock_quantity.' . $key) }}</span>
                                 @endif

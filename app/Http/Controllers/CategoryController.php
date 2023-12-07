@@ -118,7 +118,7 @@ class CategoryController extends Controller
         }
 
         Session::flash('error', __('message.category.edit_error'));
-        return redirect()->route(ROUTE_ADMIN_CATEGORY_EDIT)->withInput();
+        return redirect()->route(ROUTE_ADMIN_CATEGORY_EDIT, $id)->withInput();
     }
 
     public function deleteAdmin($id)

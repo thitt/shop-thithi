@@ -20,6 +20,8 @@ return [
     'product' => [
         'create_success' => 'Sản phẩm tạo thành công!',
         'create_error' => 'Sản phẩm tạo thất bại.',
+        'edit_success' => 'Sản phẩm sửa thành công!',
+        'edit_error' => 'Sản phẩm sửa thất bại.',
         'delete_success' => 'Xoá sản phẩm thành công!',
         'delete_error' => 'Xoá sản phẩm thất bại.',
         'modal_delete' => 'Bạn có chắc muốn xoá sản phẩm này không?',
