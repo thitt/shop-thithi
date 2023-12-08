@@ -46,20 +46,24 @@ const PRODUCT_ADMIN = (function () {
         if (file) {
             img.html('');
             let src = URL.createObjectURL(file);
-            img.append('<img src="' + src  + '"/>');
+            img.append('<img class="img-thumbnail" src="' + src  + '"/>');
         }
     }
 
     modules.saveImageStorage = function (event, element) {
         const image = event.target.files[0];
-        const reader = new FileReader();
-        reader.readAsDataURL(image);
         let name = $(element).attr('name');
-
-        reader.addEventListener('load', () => {
-            localStorage.setItem(name, reader.result);
-            localStorage.setItem(name + '_name', image.name);
-        });
+        if (image) {
+            const reader = new FileReader();
+            reader.readAsDataURL(image);
+            reader.addEventListener('load', () => {
+                localStorage.setItem(name, reader.result);
+                localStorage.setItem(name + '_name', image.name);
+            });
+        } else {
+            localStorage.removeItem(name);
+            localStorage.removeItem(name + '_name');
+        }
     }
 
     modules.getImageStorage = function () {
@@ -86,7 +90,7 @@ const PRODUCT_ADMIN = (function () {
             let name_file = localStorage.getItem(name + '_name');
             let input_file = $('input[name="' + name + '"]');
             input_file.parent().find('.preview-image').html('');
-            input_file.parent().find('.preview-image').append('<img src="' + image_src + '"/>');
+            input_file.parent().find('.preview-image').append('<img class="img-thumbnail" src="' + image_src + '"/>');
             const dataTransfer = new DataTransfer();
             dataTransfer.items.add(modules.dataURLtoFile(image_src, name_file));
             input_file.files = dataTransfer.files;
@@ -124,7 +128,20 @@ $(document).ready(() => {
     })
 
     $('.input-image').on('change', function (event) {
-        PRODUCT_ADMIN.displayImagePreview(this);
+        $(this).removeClass('border-danger');
+        $(this).parent().find('.invalid-feedback').remove();
+        let size = this.files[0].size;
+        let maxSizeKB = 100;
+        let maxSize = maxSizeKB * 1024;
+        if(size > maxSize) {
+            let msg_error = "Kích thước tệp tối đa " + maxSizeKB + "KB được phép.";
+            this.value = "";
+            $(this).addClass('border-danger');
+            $(this).parent().append('<span class="invalid-feedback d-block">' + msg_error + '</span>');
+            $(this).parent().find('.preview-image').html('');
+        } else {
+            PRODUCT_ADMIN.displayImagePreview(this);
+        }
         PRODUCT_ADMIN.saveImageStorage(event, this);
     })
 

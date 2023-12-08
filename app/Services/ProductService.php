@@ -63,6 +63,7 @@ class ProductService
         try {
             DB::beginTransaction();
             $dataProduct = $request->only('category_id', 'name', 'description', 'price', 'weight');
+            $dataProduct['active'] = $request->active ?? NOT_ACTIVE;
             $product = $this->productRepository->create($dataProduct);
 
             $dataQuantities = $request->only('stock_quantity', 'color', 'size');

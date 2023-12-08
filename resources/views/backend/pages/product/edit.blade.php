@@ -16,7 +16,14 @@
                 @csrf
                 <input type="hidden" name="check_form_validate" value="{{ old('check_form_validate') ? 'true' : 'false' }}">
                 <div class="col-12">
-                    <h6>1. {{ __('layout.product.info') }}</h6>
+                    <div class="d-flex justify-content-between">
+                        <h6>1. {{ __('layout.product.info') }}</h6>
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="is-active" name="active"
+                                   @if (old('active', $product->active) == ACTIVE) checked @endif value="{{ ACTIVE }}">
+                            <label class="form-check-label" for="is-active">{{ __('layout.display') }}</label>
+                        </div>
+                    </div>
                     <hr class="mt-0">
                 </div>
 
@@ -30,7 +37,7 @@
                 </div>
                 <div class="col-md-6">
                     <label class="form-label" for="category-id">{{ __('layout.category.title') }}</label> <span class="text-danger">*</span>
-                    <select class="form-select @if ($errors->has('parent_id')) border-danger @endif" id="category-id" name="category_id">
+                    <select class="form-select @if ($errors->has('category_id')) border-danger @endif" id="category-id" name="category_id">
                         <option value="">{{ __('layout.select') }}</option>
                         @foreach($list_category as $category)
                             <option value="{{ $category->id }}" @if (old('category_id', $product->category_id) == $category->id) selected @endif>
@@ -68,7 +75,7 @@
                     @endif
                     <div class="block-img mt-2 preview-image">
                         @if($image_base = $product->productImages->where('role', ROLE_IMAGE['image_base'])->first())
-                            <img src="data:image/png;base64, {{ $image_base->image }}" alt="image base">
+                            <img class="img-thumbnail" src="{{ getImageBase64($image_base->image) }}" alt="image base">
                         @endif
                     </div>
                 </div>
@@ -81,7 +88,7 @@
                     @endif
                     <div class="block-img mt-2 preview-image">
                         @if($image_small = $product->productImages->where('role', ROLE_IMAGE['image_small'])->first())
-                            <img src="data:image/png;base64, {{ $image_small->image }}" alt="image small">
+                            <img class="img-thumbnail" src="{{ getImageBase64($image_small->image) }}" alt="image small">
                         @endif
                     </div>
                 </div>
@@ -94,8 +101,7 @@
                     @endif
                     <div class="block-img mt-2 preview-image">
                         @if($image_thumbnail = $product->productImages->where('role', ROLE_IMAGE['image_thumbnail'])->first())
-                            <img src="data:image/png;base64, {{ $image_thumbnail->image }}" alt="image thumbnail">
-
+                            <img class="img-thumbnail" src="{{ getImageBase64($image_thumbnail->image) }}" alt="image thumbnail">
                         @endif
                     </div>
                 </div>
@@ -108,7 +114,7 @@
                     @endif
                     <div class="block-img mt-2 preview-image">
                         @if($image_swatch = $product->productImages->where('role', ROLE_IMAGE['image_swatch'])->first())
-                            <img src="data:image/png;base64, {{ $image_swatch->image }}" alt="image swatch">
+                            <img class="img-thumbnail" src="{{ getImageBase64($image_swatch->image) }}" alt="image swatch">
                         @endif
                     </div>
                 </div>
