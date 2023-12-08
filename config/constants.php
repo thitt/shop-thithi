@@ -192,3 +192,9 @@ if (!defined('SYSTEM_ERROR')) {
         'not_found' => 404,
     ]);
 }
+if (!defined('ACTIVE')) {
+    define('ACTIVE', 1);
+}
+if (!defined('NOT_ACTIVE')) {
+    define('NOT_ACTIVE', 0);
+}

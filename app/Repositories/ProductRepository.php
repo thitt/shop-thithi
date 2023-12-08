@@ -27,9 +27,14 @@ class ProductRepository extends BaseRepository
                     where `products`.`id` = `product_quantities`.`product_id`
                       and `product_quantities`.`deleted_at` is null) ';
         $result = $this->model
-            ->with(['category' => function ($query) use ($data) {
-                $query->with('parent');
-            }])
+            ->with([
+                'category' => function ($query) use ($data) {
+                    $query->with('parent');
+                },
+                'productImages' => function ($query) {
+                    $query->where('role', ROLE_IMAGE['image_thumbnail']);
+                }
+            ])
             ->withSum('productQuantities', 'stock_quantity')
             ->withMax('category', 'name')
             ->when(isset($data['name']), function ($query) use ($data) {

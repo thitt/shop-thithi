@@ -103,3 +103,14 @@ if (!function_exists('getNameCategory')) {
         return $category->name . $parent;
     }
 }
+
+if (!function_exists('getImageBase64')) {
+    function getImageBase64($image)
+    {
+        if ($image) {
+            return 'data:image/png;base64, ' . $image;
+        }
+
+        return asset('img/product/default.png');
+    }
+}

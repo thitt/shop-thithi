@@ -33,6 +33,7 @@ return [
     'color' => 'Color',
     'size' => 'Size',
     'sell_number' => 'sell number',
+    'display' => 'Display',
     'button' => [
         'save' => 'Save',
         'back' => 'Back',
@@ -100,5 +101,8 @@ return [
     ],
     'shop' => [
         'title' => 'Shop',
+    ],
+    'admin' => [
+        'title' => 'Admin',
     ],
 ];

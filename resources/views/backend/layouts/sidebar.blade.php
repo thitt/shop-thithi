@@ -21,7 +21,7 @@
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">User</div>
+                <div data-i18n="Layouts">Customer</div>
             </a>
 
             <ul class="menu-sub">
@@ -105,12 +105,12 @@
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div data-i18n="Form Elements">Admin</div>
+                <div data-i18n="Form Elements">{{ __('layout.admin.title') }}</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
                     <a href="#" class="menu-link">
-                        <div data-i18n="Basic Inputs">List</div>
+                        <div data-i18n="Basic Inputs">{{ __('layout.list') }}</div>
                     </a>
                 </li>
                 <li class="menu-item">

@@ -33,6 +33,7 @@ return [
     'color' => 'Màu sắc',
     'size' => 'Kích cỡ',
     'sell_number' => 'số lượt bán',
+    'display' => 'Hiển thị',
     'button' => [
         'save' => 'Lưu',
         'back' => 'Quay lại',

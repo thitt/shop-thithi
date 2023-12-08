@@ -16,7 +16,14 @@
                 @csrf
                 <input type="hidden" name="check_form_validate" value="{{ old('check_form_validate') ? 'true' : 'false' }}">
                 <div class="col-12">
-                    <h6>1. {{ __('layout.product.info') }}</h6>
+                    <div class="d-flex justify-content-between">
+                        <h6>1. {{ __('layout.product.info') }}</h6>
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="is-active" name="active"
+                                   @if (old('active', ACTIVE) == ACTIVE) checked @endif value="{{ ACTIVE }}">
+                            <label class="form-check-label" for="is-active">{{ __('layout.display') }}</label>
+                        </div>
+                    </div>
                     <hr class="mt-0">
                 </div>
 
@@ -30,7 +37,7 @@
                 </div>
                 <div class="col-md-6">
                     <label class="form-label" for="category-id">{{ __('layout.category.title') }}</label> <span class="text-danger">*</span>
-                    <select class="form-select @if ($errors->has('parent_id')) border-danger @endif" id="category-id" name="category_id">
+                    <select class="form-control @if ($errors->has('category_id')) border-danger @endif" id="category-id" name="category_id">
                         <option value="">{{ __('layout.select') }}</option>
                         @foreach($list_category as $category)
                             <option value="{{ $category->id }}" @if (old('category_id') == $category->id) selected @endif>

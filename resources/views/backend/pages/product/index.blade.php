@@ -110,13 +110,13 @@
                     </thead>
                     <tbody>
                     @forelse($list_product as $product)
-                        @php
-
-                        @endphp
-                        <tr>
+                        <tr class="@if ($product->active != ACTIVE) table-secondary @endif">
                             <td>{{ $product->id }}</td>
                             <td>
-                                <strong>{{ $product->name }}</strong>
+                                <strong>
+                                    <img class="w-px-40" src="{{ isset($product->productImages->first()->image) ? getImageBase64($product->productImages->first()->image) : asset('img/product/default.png') }}" alt="image product">
+                                    {{ $product->name }}
+                                </strong>
                             </td>
                             <td>{{ getNameCategory($product->category) }}</td>
                             <td>{{ $product->slug }}</td>
