@@ -117,7 +117,7 @@ class AuthService
             $credentials = $request->only('email', 'password');
             $user = $this->userRepository->findEmail($credentials['email']);
             if (
-                ($user->role == ROLE_USER['admin'] || $user->role == ROLE_USER['super_admin']) &&
+                $user && ($user->role == ROLE_USER['admin'] || $user->role == ROLE_USER['super_admin']) &&
                 Auth::guard('admin')->attempt($credentials)
             ) {
                 return ROUTE_ADMIN_HOME_INDEX;
